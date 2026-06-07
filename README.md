@@ -50,6 +50,19 @@ DNS 管理画面で次を設定してください。
 > `www.ourpins.app` も使う場合は、別途 `CNAME www → ourpins.github.io` を追加します。
 > 最新の GitHub Pages の IP は公式ドキュメントで確認してください。
 
+### Cloudflare を使う場合（推奨）
+
+Cloudflare は **CNAME フラット化**に対応しているため、apex でも A/AAAA を並べる代わりに次の 1 レコードで済みます。
+
+| Type | Name | Target | Proxy |
+| --- | --- | --- | --- |
+| CNAME | `@` (`ourpins.app`) | `ourpins.github.io` | DNS only（グレー雲） |
+
+- GitHub が証明書を発行できるよう、**最初は「DNS only（グレー雲）」**にしておきます。
+- 反映後、GitHub の **Settings → Pages → Enforce HTTPS** をオンにします。
+- HTTPS 証明書の発行が完了したら、必要に応じて Proxy（オレンジ雲）を有効にし、SSL/TLS を **Full** にします。
+- `legal.ourpins.app` と同様の設定です（あちらは `CNAME legal → ourpins.github.io`）。
+
 DNS 反映後、**Settings → Pages → Enforce HTTPS** をオンにします。公開 URL は `https://ourpins.app/` です。
 
 > `.nojekyll` を置いているため、Jekyll の処理をスキップしてファイルをそのまま配信します。
