@@ -1,74 +1,57 @@
 # OurPins Web
 
-共同マップアプリ **OurPins** のランディングページ（公式サイト）です。GitHub Pages でホスティングし、カスタムドメイン `ourpins.app` で公開します。
+共同マップアプリ **OurPins** の公式サイト（LP ＋ 法務・サポートページ）です。
+GitHub Pages でホスティングし、カスタムドメイン `ourpins.app` で公開します。
+デザインは Claude Design で作成し、本リポジトリに実装しています。
 
-ポリシー類は別サイト [`ourpins-legal`](https://github.com/ourpins/ourpins-legal)（`legal.ourpins.app`）に置き、同じデザイン言語でつながるようにしています。
+すべてのページを `ourpins.app` 配下に集約しています（旧 `legal.ourpins.app` は廃止予定）。
 
-## ページ・ファイル
+## ページ構成
 
-| ファイル | 内容 |
-| --- | --- |
-| [`index.html`](index.html) | ランディングページ（ヒーロー / 機能 / 使い方 / CTA） |
-| [`styles.css`](styles.css) | スタイル（OurPins-legal と共通のデザイントークン） |
-| [`assets/`](assets/) | アプリアイコン・ファビコン |
-| `CNAME` | カスタムドメイン（`ourpins.app`）の指定 |
+| パス | ファイル | 内容 |
+| --- | --- | --- |
+| `/` | [`index.html`](index.html) | ランディングページ |
+| `/privacy` | [`privacy/index.html`](privacy/index.html) | プライバシーポリシー |
+| `/terms` | [`terms/index.html`](terms/index.html) | 利用規約 |
+| `/contact` | [`contact/index.html`](contact/index.html) | お問い合わせ |
+| `/delete-account` | [`delete-account/index.html`](delete-account/index.html) | アカウント削除の案内 |
+| `/community-guidelines` | [`community-guidelines/index.html`](community-guidelines/index.html) | コミュニティガイドライン |
+| （404） | [`404.html`](404.html) | Not Found |
+
+共通: [`styles.css`](styles.css)（デザイントークン・全ページ共通スタイル）、
+[`site.js`](site.js)（控えめなモーション：スクロール表示・ヒーロー演出・ピン演出。`prefers-reduced-motion` 対応）、
+[`assets/`](assets/)（ロゴ・アイコン・スマホモック）。
+
+> 拡張子なしURL（`/privacy` 等）のため、各ページは「フォルダ + index.html」で配置しています。
+> `styles.css` / `site.js` はキャッシュ更新用に `?v=N` を付けて参照しています（更新時は番号を上げる）。
+
+## 連絡先
+
+- 一般サポート / アカウント削除: `support@ourpins.app`
+- プライバシー / 法務: `legal@ourpins.app`
 
 ## ローカルで確認する
-
-ビルド不要の静的サイトです。
 
 ```bash
 python -m http.server 8000
 # http://localhost:8000 を開く
 ```
 
-## GitHub Pages での公開手順
+## GitHub Pages / 独自ドメイン
 
-1. GitHub の `ourpins` org にリポジトリ `ourpins-web` を用意する。
-2. このディレクトリを push する。
-3. リポジトリの **Settings → Pages** を開く。
-4. **Build and deployment → Source** を「Deploy from a branch」にする。
-5. Branch を `main`（フォルダは `/root`）に設定して保存する。
-
-## カスタムドメイン（ourpins.app）
-
-`CNAME` ファイルで apex ドメイン `ourpins.app` を指定しています。apex（サブドメインなし）は CNAME ではなく **A / AAAA レコード**で GitHub Pages の IP を指す必要があります。
-
-DNS 管理画面で次を設定してください。
-
-| Type | Name | Value |
-| --- | --- | --- |
-| A | `@` | `185.199.108.153` |
-| A | `@` | `185.199.109.153` |
-| A | `@` | `185.199.110.153` |
-| A | `@` | `185.199.111.153` |
-| AAAA | `@` | `2606:50c0:8000::153` |
-| AAAA | `@` | `2606:50c0:8001::153` |
-| AAAA | `@` | `2606:50c0:8002::153` |
-| AAAA | `@` | `2606:50c0:8003::153` |
-
-> `www.ourpins.app` も使う場合は、別途 `CNAME www → ourpins.github.io` を追加します。
-> 最新の GitHub Pages の IP は公式ドキュメントで確認してください。
-
-### Cloudflare を使う場合（推奨）
-
-Cloudflare は **CNAME フラット化**に対応しているため、apex でも A/AAAA を並べる代わりに次の 1 レコードで済みます。
+- リポジトリ: `ourpins/ourpins-web`、Pages は `main / root`。
+- `CNAME` で apex ドメイン `ourpins.app` を指定。
+- Cloudflare DNS（CNAME フラット化）:
 
 | Type | Name | Target | Proxy |
 | --- | --- | --- | --- |
-| CNAME | `@` (`ourpins.app`) | `ourpins.github.io` | DNS only（グレー雲） |
+| CNAME | `@`（`ourpins.app`） | `ourpins.github.io` | DNS only（グレー雲） |
+| CNAME | `www` | `ourpins.github.io` | DNS only（グレー雲） |
 
-- GitHub が証明書を発行できるよう、**最初は「DNS only（グレー雲）」**にしておきます。
-- 反映後、GitHub の **Settings → Pages → Enforce HTTPS** をオンにします。
-- HTTPS 証明書の発行が完了したら、必要に応じて Proxy（オレンジ雲）を有効にし、SSL/TLS を **Full** にします。
-- `legal.ourpins.app` と同様の設定です（あちらは `CNAME legal → ourpins.github.io`）。
+DNS 反映後、**Settings → Pages → Enforce HTTPS** をオンにします。
 
-DNS 反映後、**Settings → Pages → Enforce HTTPS** をオンにします。公開 URL は `https://ourpins.app/` です。
+## メモ
 
-> `.nojekyll` を置いているため、Jekyll の処理をスキップしてファイルをそのまま配信します。
-
-## デザインについて
-
-- ブランドカラーは Rausch `#ff385c`、白基調・ソフトな角丸という OurPins のデザインシステム（`OurPins/DESIGN.md`）に準拠。
-- ヘッダー / フッター / カードのトーンを `OurPins-legal` と揃え、両サイトが「同じサイト」として感じられるようにしています。
-- アプリのスクリーンショットは、アプリ完成後に `#screens` セクションへ差し込みます（現在は Coming soon プレースホルダ）。
+- 法務ページ（privacy / terms）は構成・可読性重視の骨子です。正式な条文は差し替え前提。
+- ストアバッジは商標に配慮したオリジナルの「近日公開（Coming soon）」表記。
+- アプリのスクショは、各画面を切り出した透過 PNG（`assets/phone-*.png`）を使用。
