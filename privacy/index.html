@@ -54,7 +54,7 @@
       <span class="eyebrow reveal">PRIVACY POLICY</span>
       <h1 class="reveal" data-delay="60">プライバシーポリシー</h1>
       <p class="lead reveal" data-delay="120">OurPins（以下「本アプリ」）は、ユーザーのプライバシーを大切にします。本ポリシーは、取得する情報とその取り扱いについて説明するものです。</p>
-      <p class="updated reveal" data-delay="160">最終更新日：2026年6月8日</p>
+      <p class="updated reveal" data-delay="160">最終更新日：2026年6月9日</p>
     </div>
   </section>
   <div class="container">
@@ -109,7 +109,22 @@
           <li>通知設定、ピンの既読状態などのアプリ内設定。</li>
         </ul>
 
-        <h3>(5) 端末の権限</h3>
+        <h3>(5) フィードバック情報</h3>
+        <ul>
+          <li>ユーザーがアプリ内のフィードバック機能を利用した場合に、入力された種別（不具合・使いにくい・欲しい機能・その他）および内容、ならびに任意で入力された返信用の連絡先を取得します。</li>
+          <li>送信時に、アプリのバージョン、プラットフォーム種別、関連する画面の情報を自動的に付加することがあります。返信を希望されない限り、連絡先の入力は任意です。</li>
+        </ul>
+
+        <h3>(6) 利用状況・診断情報（分析およびクラッシュ情報）</h3>
+        <p>本アプリの品質向上のため、利用状況の分析および不具合・クラッシュの検知を行います。</p>
+        <ul>
+          <li><strong>利用状況の分析：</strong>Firebase Analytics を用いて、匿名の利用イベント（どの機能が使われたか、画面の利用状況など）を収集します。氏名・メールアドレス・コメント本文・写真・正確な位置情報は送信しません。イベントに付随する情報は、カテゴリやおおまかなグループ人数などの抽象化された値に限定しています。</li>
+          <li><strong>クラッシュ・エラー情報：</strong>Sentry を用いて、アプリのクラッシュやエラーの診断情報（エラーの内容、端末・OS の種別、発生時のアプリ内の操作履歴など）を収集します。</li>
+          <li>これらの分析・計測は、アプリ内の設定（プロフィール → プライバシー →「利用状況の分析に協力」）からいつでも停止できます。</li>
+          <li>当チームは、これらの情報を広告目的や、他社のアプリ・ウェブサイトをまたいだ追跡（トラッキング）には利用しません。広告識別子（IDFA 等）は収集しません。</li>
+        </ul>
+
+        <h3>(7) 端末の権限</h3>
         <p>本アプリは以下の権限を、それぞれの目的のためにユーザーの許可を得て使用します。許可はいつでも端末の設定から変更できます。</p>
         <table>
           <thead><tr><th>権限</th><th>利用目的</th></tr></thead>
@@ -129,8 +144,8 @@
           <li>本アプリの提供、ユーザーの認証、アカウントの管理のため</li>
           <li>グループ内での場所・予定・思い出などの共有およびリアルタイム同期のため</li>
           <li>プッシュ通知・アプリ内通知の配信のため</li>
-          <li>不具合の調査・対応、お問い合わせへの対応のため</li>
-          <li>本アプリの改善および新機能の検討のため</li>
+          <li>不具合の調査・対応、お問い合わせ・フィードバックへの対応のため</li>
+          <li>利用状況の分析およびクラッシュ・不具合の検知を通じた、本アプリの改善および新機能の検討のため</li>
           <li>規約違反への対応、不正利用の防止、その他サービスの安全な運営のため</li>
         </ul>
       </section>
@@ -148,6 +163,8 @@
             <tr><th>Supabase</th><td>認証、データベース、写真ストレージ（投稿データの保存先）</td><td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></td></tr>
             <tr><th>Expo (Expo Application Services)</th><td>アプリ配信基盤およびプッシュ通知の配信</td><td><a href="https://expo.dev/privacy" target="_blank" rel="noopener">expo.dev/privacy</a></td></tr>
             <tr><th>Google Maps Platform</th><td>地図の表示</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
+            <tr><th>Google (Firebase Analytics)</th><td>利用状況の分析</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td></tr>
+            <tr><th>Sentry (Functional Software, Inc.)</th><td>クラッシュ・エラーの検知</td><td><a href="https://sentry.io/privacy/" target="_blank" rel="noopener">sentry.io/privacy</a></td></tr>
           </tbody>
         </table>
         <p>当チームは、法令に基づく場合を除き、上記の業務委託先以外の第三者にユーザーの個人情報を提供することはありません。</p>
@@ -160,7 +177,7 @@
           <li>ユーザーは、本アプリ内の機能により、自身が作成したコンテンツ（ピン・コメント・写真等）を削除できます。</li>
           <li>ユーザーは、本アプリ内からいつでもアカウントを削除できます。削除に伴い、アカウント情報や投稿コンテンツなどの主要なデータは削除されます。手順は<a href="../delete-account/">アカウント削除のご案内</a>をご確認ください。</li>
         </ul>
-        <p>ただし、法令の遵守、不正利用の防止、セキュリティ対応のため、一部のデータを一定期間保持する場合があります。また、グループに共有済みの一部コンテンツは、他メンバーの環境に残る場合があります。</p>
+        <p>ただし、法令の遵守、不正利用の防止、セキュリティ対応のため、一部のデータを一定期間保持する場合があります。また、グループに共有済みの一部コンテンツは、他メンバーの環境に残る場合があります。なお、利用状況の分析情報やクラッシュ診断情報は、各外部サービス（Firebase Analytics・Sentry）の定める期間に従って保持されます。</p>
       </section>
 
       <section id="s7"><h2><span class="h2num">7</span>セキュリティ</h2>
