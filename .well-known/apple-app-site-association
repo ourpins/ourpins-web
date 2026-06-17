@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["REPLACE_WITH_APPLE_TEAM_ID.app.ourpins"],
+        "components": [
+          { "/": "/p/*", "comment": "Shared place links open in the OurPins app" }
+        ]
+      }
+    ]
+  }
+}
