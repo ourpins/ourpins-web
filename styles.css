@@ -89,6 +89,16 @@ p{margin:0;}
 .btn-soft{background:var(--ink);color:#fff;}
 .btn-soft:hover{transform:scale(1.02);background:#000;}
 
+/* ---------- Language switch (header, always visible incl. mobile) ---------- */
+.lang-switch{
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  font-size:13px;font-weight:600;color:var(--ink);
+  padding:7px 12px;border:1px solid var(--line);border-radius:999px;
+  transition:border-color .18s var(--ease),color .18s var(--ease);
+}
+.lang-switch:hover{border-color:var(--ink);color:var(--rausch);}
+.lang-switch svg{width:15px;height:15px;display:block;}
+
 /* ---------- Store badges (coming soon, disabled) ---------- */
 .store-row{display:flex;flex-wrap:wrap;gap:14px;}
 .store-badge{
