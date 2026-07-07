@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=6">
+<link rel="stylesheet" href="../styles.css?v=7">
 <script>document.documentElement.className += ' js';</script>
 </head>
 <body>
@@ -100,9 +100,10 @@
         <p>現在は正式な料金表を大きく公開する前のテスト段階です。掲載面、訴求内容、レポート項目を一緒に検証していただける初期パートナーを募集しています。</p>
         <p class="partner-note">掲載可否や内容は、OurPinsのユーザー体験・安全性・広告表記ポリシーに沿って確認します。</p>
 
-        <form class="partner-form" action="mailto:support@ourpins.app" method="post" enctype="text/plain">
-          <label>店舗・団体名<input name="name" autocomplete="organization" required></label>
-          <label>ご担当者メール<input name="email" type="email" autocomplete="email" required></label>
+        <form class="partner-form" data-partner-form data-endpoint="https://formspree.io/f/REPLACE_WITH_PARTNER_FORM_ID" data-success-message="送信しました。内容を確認して、パートナー窓口からご連絡します。" data-error-message="送信できませんでした。時間をおいてもう一度お試しください。" data-config-message="フォーム送信先が未設定です。hello@ourpins.app へご連絡ください。">
+          <input type="hidden" name="_subject" value="OurPins パートナー掲載の相談">
+          <label><span class="partner-form__label">店舗・団体名 <span class="partner-form__required">必須</span></span><input name="organization" autocomplete="organization" required aria-required="true"></label>
+          <label><span class="partner-form__label">ご担当者メール <span class="partner-form__required">必須</span></span><input name="email" type="email" autocomplete="email" required aria-required="true"></label>
           <label>業種
             <select name="category">
               <option>飲食店</option>
@@ -113,7 +114,11 @@
             </select>
           </label>
           <label>相談したい内容<textarea name="message" placeholder="掲載したいエリア、店舗URL、希望するPR内容など"></textarea></label>
-          <button class="btn btn-primary" type="submit">相談内容をメールで送る</button>
+          <label class="partner-form__honeypot" aria-hidden="true">Webサイト<input name="website" tabindex="-1" autocomplete="off"></label>
+          <p class="partner-form__note">送信内容はパートナー窓口（hello@ourpins.app）へ届きます。メールアプリは起動しません。</p>
+          <div class="partner-form__status" data-form-status role="status" aria-live="polite"></div>
+          <button class="btn btn-primary" type="submit" data-submit-label="相談内容を送信" data-loading-label="送信中...">相談内容を送信</button>
+          <p class="partner-form__fallback">フォームが送れない場合は <a href="mailto:hello@ourpins.app">hello@ourpins.app</a> へご連絡ください。</p>
         </form>
       </section>
     </article>
@@ -131,6 +136,6 @@
     <div class="footer__bottom"><small>© <span data-year>2026</span> OurPins</small><div class="links"><a href="../privacy/">プライバシー</a><a href="../terms/">規約</a><a href="../contact/">お問い合わせ</a></div></div>
   </div>
 </footer>
-<script src="../site.js?v=5"></script>
+<script src="../site.js?v=6"></script>
 </body>
 </html>

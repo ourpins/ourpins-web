@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../styles.css?v=6">
+<link rel="stylesheet" href="../../styles.css?v=7">
 <script>document.documentElement.className += ' js';</script>
 </head>
 <body>
@@ -100,9 +100,10 @@
         <p>We are currently testing the right format before publishing a large rate card. Early partners can help us validate placement design, offer types, and reporting.</p>
         <p class="partner-note">All listings are reviewed for user safety, fit, and clear ad labeling.</p>
 
-        <form class="partner-form" action="mailto:support@ourpins.app" method="post" enctype="text/plain">
-          <label>Business or organization<input name="name" autocomplete="organization" required></label>
-          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <form class="partner-form" data-partner-form data-endpoint="https://formspree.io/f/REPLACE_WITH_PARTNER_FORM_ID" data-success-message="Sent. We will review your inquiry and get back to you from the partnership desk." data-error-message="We could not send the form. Please try again in a moment." data-config-message="The form endpoint is not configured yet. Please contact hello@ourpins.app.">
+          <input type="hidden" name="_subject" value="OurPins partnership inquiry">
+          <label><span class="partner-form__label">Business or organization <span class="partner-form__required">Required</span></span><input name="organization" autocomplete="organization" required aria-required="true"></label>
+          <label><span class="partner-form__label">Contact email <span class="partner-form__required">Required</span></span><input name="email" type="email" autocomplete="email" required aria-required="true"></label>
           <label>Category
             <select name="category">
               <option>Food and drink</option>
@@ -113,7 +114,11 @@
             </select>
           </label>
           <label>What would you like to discuss?<textarea name="message" placeholder="Area, website URL, desired promotion, or campaign idea"></textarea></label>
-          <button class="btn btn-primary" type="submit">Email the partnership team</button>
+          <label class="partner-form__honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+          <p class="partner-form__note">Submissions are sent to the partnership desk at hello@ourpins.app. Your email app will not open.</p>
+          <div class="partner-form__status" data-form-status role="status" aria-live="polite"></div>
+          <button class="btn btn-primary" type="submit" data-submit-label="Send partnership inquiry" data-loading-label="Sending...">Send partnership inquiry</button>
+          <p class="partner-form__fallback">If the form does not work, contact <a href="mailto:hello@ourpins.app">hello@ourpins.app</a>.</p>
         </form>
       </section>
     </article>
@@ -131,6 +136,6 @@
     <div class="footer__bottom"><small>© <span data-year>2026</span> OurPins</small><div class="links"><a href="/privacy/en/">Privacy</a><a href="/terms/en/">Terms</a><a href="/contact/en/">Contact</a></div></div>
   </div>
 </footer>
-<script src="../../site.js?v=5"></script>
+<script src="../../site.js?v=6"></script>
 </body>
 </html>

@@ -32,6 +32,69 @@
     });
   }
 
+  /* ---- Partner inquiry form ---- */
+  [].slice.call(document.querySelectorAll('[data-partner-form]')).forEach(function (form) {
+    var endpoint = form.getAttribute('data-endpoint') || '';
+    var status = form.querySelector('[data-form-status]');
+    var button = form.querySelector('button[type="submit"]');
+    var submitLabel = button ? (button.getAttribute('data-submit-label') || button.textContent) : '';
+    var loadingLabel = button ? (button.getAttribute('data-loading-label') || 'Sending...') : '';
+
+    function setStatus(message, kind) {
+      if (!status) return;
+      status.textContent = message;
+      status.classList.remove('is-success', 'is-error');
+      status.classList.add('is-visible', kind === 'success' ? 'is-success' : 'is-error');
+    }
+
+    function resetButton() {
+      if (!button) return;
+      button.disabled = false;
+      button.textContent = submitLabel;
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      if (!endpoint || endpoint.indexOf('REPLACE_WITH_PARTNER_FORM_ID') !== -1) {
+        setStatus(form.getAttribute('data-config-message') || 'The form endpoint is not configured yet.', 'error');
+        return;
+      }
+
+      if (typeof form.reportValidity === 'function' && !form.reportValidity()) {
+        return;
+      }
+
+      var honeypot = form.querySelector('[name="website"]');
+      if (honeypot && honeypot.value) {
+        setStatus(form.getAttribute('data-success-message') || 'Sent.', 'success');
+        form.reset();
+        return;
+      }
+
+      var body = new FormData(form);
+      var email = body.get('email');
+      if (email) body.set('_replyto', email);
+
+      if (button) {
+        button.disabled = true;
+        button.textContent = loadingLabel;
+      }
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: body
+      }).then(function (response) {
+        if (!response.ok) throw new Error('Form submission failed');
+        setStatus(form.getAttribute('data-success-message') || 'Sent.', 'success');
+        form.reset();
+      }).catch(function () {
+        setStatus(form.getAttribute('data-error-message') || 'Could not send the form.', 'error');
+      }).finally(resetButton);
+    });
+  });
+
   /* ---- Hero load sequence ---- */
   var hero = document.querySelector('[data-hero]');
   if (hero) {

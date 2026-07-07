@@ -331,6 +331,16 @@ body.menu-open .mobile-menu{transform:none;opacity:1;pointer-events:auto;}
 .partner-form input,.partner-form textarea,.partner-form select{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 13px;font:inherit;color:var(--ink);background:#fff;}
 .partner-form textarea{min-height:120px;resize:vertical;}
 .partner-form .btn{border:0;cursor:pointer;justify-self:start;}
+.partner-form .btn[disabled]{opacity:.68;cursor:progress;transform:none;}
+.partner-form__label{display:flex;align-items:center;flex-wrap:wrap;gap:6px;}
+.partner-form__required{display:inline-flex;align-items:center;justify-content:center;width:max-content;border-radius:999px;background:#fff1ee;color:var(--rausch);padding:2px 7px;font-size:11px;font-weight:800;}
+.partner-form__note,.partner-form__fallback{margin:0;color:var(--muted);font-size:13px;line-height:1.7;}
+.partner-form__fallback a{color:var(--rausch);font-weight:800;text-decoration:underline;text-underline-offset:3px;}
+.partner-form__status{display:none;border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:13px;font-weight:700;line-height:1.6;}
+.partner-form__status.is-visible{display:block;}
+.partner-form__status.is-success{border-color:#bbf7d0;background:#f0fdf4;color:#166534;}
+.partner-form__status.is-error{border-color:#ffd1ca;background:#fff4f2;color:#b42318;}
+.partner-form__honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 
 .faq{margin-top:14px;border-top:1px solid var(--line-soft);}
 .faq details{border-bottom:1px solid var(--line-soft);}
