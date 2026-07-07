@@ -318,6 +318,20 @@ body.menu-open .mobile-menu{transform:none;opacity:1;pointer-events:auto;}
 .contact-card .mail{display:inline-block;margin-top:16px;font-weight:600;color:var(--rausch);text-decoration:underline;text-underline-offset:3px;text-decoration-color:color-mix(in oklab,var(--rausch) 30%,white);font-size:16px;}
 .contact-card .mail:hover{text-decoration-color:var(--rausch);}
 
+/* ---------- Partner page ---------- */
+.partner-kicker{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+.partner-pill{display:inline-flex;align-items:center;min-height:34px;border:1px solid var(--line-soft);border-radius:var(--r-pill);padding:7px 12px;background:#fff;color:var(--muted);font-size:13px;font-weight:700;}
+.partner-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:18px 0 24px;}
+.partner-panel{border:1px solid var(--line-soft);border-radius:var(--r-card);background:#fff;padding:22px;}
+.partner-panel h3{margin-top:0;}
+.partner-panel p{font-size:14.5px;}
+.partner-note{font-size:13.5px;color:var(--muted);}
+.partner-form{display:grid;gap:13px;margin-top:18px;padding:22px;border:1px solid var(--line-soft);border-radius:var(--r-card);background:#fff;}
+.partner-form label{display:grid;gap:7px;color:var(--ink);font-size:13px;font-weight:700;}
+.partner-form input,.partner-form textarea,.partner-form select{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 13px;font:inherit;color:var(--ink);background:#fff;}
+.partner-form textarea{min-height:120px;resize:vertical;}
+.partner-form .btn{border:0;cursor:pointer;justify-self:start;}
+
 .faq{margin-top:14px;border-top:1px solid var(--line-soft);}
 .faq details{border-bottom:1px solid var(--line-soft);}
 .faq summary{cursor:pointer;list-style:none;padding:20px 4px;font-weight:600;color:var(--ink);font-size:16px;display:flex;justify-content:space-between;gap:16px;align-items:center;}
@@ -384,6 +398,7 @@ body.menu-open .mobile-menu{transform:none;opacity:1;pointer-events:auto;}
   .footer__grid{grid-template-columns:1fr 1fr;gap:30px;}
   .footer__brand{grid-column:1 / -1;}
   .contact-grid{grid-template-columns:1fr;}
+  .partner-grid{grid-template-columns:1fr;}
 }
 @media (max-width:520px){
   .grid-3{grid-template-columns:1fr;}
