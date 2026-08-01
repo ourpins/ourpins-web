@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ページが見つかりません｜OurPins</title>
-<meta name="description" content="お探しのページは見つかりませんでした。URLが変更されたか、削除された可能性があります。">
+<title>OurPins</title>
+<meta name="description" content="友達と「ここ行こう」を共有できる地図アプリOurPins。共有された場所はアプリで開けます。">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="ページが見つかりません｜OurPins">
-<meta property="og:description" content="お探しのページは見つかりませんでした。">
+<!-- この404ページは /p/（場所共有リンク）の受け皿を兼ねる。クローラーはJSを
+     実行しないため、OGはシェアされた場所リンクのプレビューとして自然に見える
+     中立的な文言にしておく（本物の404がシェアされることはまずない）。 -->
+<meta property="og:title" content="OurPins｜行きたい場所を友達と">
+<meta property="og:description" content="友達がOurPinsで場所を共有しました。アプリで開くと地図とみんなの反応が見られます。">
 <meta property="og:image" content="https://ourpins.app/assets/pins_icon_transparent.png">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" type="image/png" href="/assets/pins_icon_transparent.png">
@@ -47,11 +50,29 @@
     <span class="pin-deco" style="top:16%;left:12%"><i></i></span>
     <span class="pin-deco pin-deco--lg" style="bottom:18%;right:13%"><i></i></span>
     <div class="nf__pin" aria-hidden="true"><i></i></div>
-    <h1>404</h1>
-    <p>お探しのページが見つかりませんでした。<br>URLが変更されたか、削除された可能性があります。</p>
-    <div class="store-row" style="justify-content:center">
-      <a class="btn btn-primary" href="/">トップに戻る</a>
-      <a class="btn btn-ghost" href="/contact/">お問い合わせ</a>
+
+    <!-- 通常の404（/p/ 以外のパス） -->
+    <div id="nf-default">
+      <h1>404</h1>
+      <p>お探しのページが見つかりませんでした。<br>URLが変更されたか、削除された可能性があります。</p>
+      <div class="store-row" style="justify-content:center">
+        <a class="btn btn-primary" href="/">トップに戻る</a>
+        <a class="btn btn-ghost" href="/contact/">お問い合わせ</a>
+      </div>
+    </div>
+
+    <!-- /p/<group>/<pin> の場所共有リンク。アプリ未インストール（またはLINE等の
+         アプリ内ブラウザでApp Linksが発火しないケース）でここに着地する。 -->
+    <div id="nf-place" hidden>
+      <h1>友達が場所を共有しました</h1>
+      <p>OurPinsアプリで開くと、地図の場所と<br>みんなの「行きたい！」が見られます。</p>
+      <div class="store-row" style="justify-content:center">
+        <a class="btn btn-primary" id="nf-open-app" href="/">アプリで開く</a>
+        <a class="btn btn-ghost" id="nf-store-link" href="https://play.google.com/store/apps/details?id=app.ourpins">Google Playで入手</a>
+      </div>
+      <p id="nf-place-note" style="margin-top:16px;font-size:13px;color:#767676">
+        インストール済みなのに開かない場合は「アプリで開く」をタップしてください。
+      </p>
     </div>
   </section>
 </main>
@@ -74,6 +95,35 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  // /p/<groupId>/<pinId> → 場所共有リンクの受け皿に切り替える。
+  // クエリ・ハッシュ・末尾スラッシュは許容し、IDはそのままスキームへ引き継ぐ。
+  var m = location.pathname.match(/^\/p\/([^\/?#]+)\/([^\/?#]+)/);
+  if (!m) {
+    document.title = 'ページが見つかりません｜OurPins';
+    return;
+  }
+  document.title = '共有された場所を開く｜OurPins';
+  document.getElementById('nf-default').hidden = true;
+  var place = document.getElementById('nf-place');
+  place.hidden = false;
+
+  // アプリのカスタムスキーム。App Links / Universal Links が使えない導線
+  // （LINEのアプリ内ブラウザ等）でも、このボタンからならアプリを起動できる。
+  var deepLink = 'ourpins://p/' + m[1] + '/' + m[2];
+  document.getElementById('nf-open-app').setAttribute('href', deepLink);
+
+  // iOSはApp Store URL確定後に差し替え（リリースチェックリスト参照）。
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPad|iPhone|iPod/.test(ua) || (/(Macintosh)/.test(ua) && navigator.maxTouchPoints > 1);
+  if (isIOS) {
+    var store = document.getElementById('nf-store-link');
+    store.textContent = 'iOS版は近日公開';
+    store.setAttribute('href', '/#download');
+  }
+})();
+</script>
 <script src="/site.js?v=5"></script>
 </body>
 </html>

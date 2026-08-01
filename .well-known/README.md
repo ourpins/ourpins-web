@@ -23,11 +23,18 @@ file (without it, Pages hides dot-folders).
 ## `assetlinks.json` (Android)
 
 - Served at `https://ourpins.app/.well-known/assetlinks.json`.
-- Replace `REPLACE_WITH_ANDROID_SIGNING_SHA256` with the **SHA-256** fingerprint
-  of the production signing certificate: `eas credentials` → Android →
-  production keystore, or Google Play Console → Release → Setup → App integrity
-  → App signing key certificate (SHA-256). Add multiple fingerprints (upload +
-  Play-managed key) if both are in use.
+- The fingerprint currently in the file (`FA:C6:17:45:…:3B:9C`) is the **shared
+  Android debug keystore** (`OurPins-app/android/app/debug.keystore`) so that
+  local `expo run:android` builds can verify App Links during testing.
+- **Before the Play release, ADD the production SHA-256** to the same
+  `sha256_cert_fingerprints` array (keep the debug one during development,
+  remove it once external testing is over):
+  Google Play Console → **Setup → App signing → App signing key certificate →
+  SHA-256**. Play re-signs the app, so this is the value that matters — NOT the
+  EAS upload key. If you also distribute internal APKs signed by the EAS
+  keystore, additionally add its SHA-256 (`eas credentials -p android`).
+- Do not leave malformed placeholder strings in the array — Google's verifier
+  rejects the whole statement.
 
 ## Test
 
