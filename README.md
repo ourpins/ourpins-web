@@ -28,13 +28,13 @@ GitHub Pages でホスティングし、カスタムドメイン `ourpins.app` �
 
 ## 連絡先
 
-- 一般サポート / アカウント削除: `support@ourpins.app`
-- プライバシー / 法務: `legal@ourpins.app`
-- パートナー・掲載相談: `hello@ourpins.app`
+- 一般サポート / アカウント削除: `ourpins.pr@gmail.com`
+- プライバシー / 法務: `ourpins.pr@gmail.com`
+- パートナー・掲載相談: `ourpins.pr@gmail.com`
 
 ## パートナーの受付
 
-店舗・地域パートナーの相談は日英の募集ページから `hello@ourpins.app` 宛てのメールで受け付けます。
+店舗・地域パートナーの相談は日英の募集ページから `ourpins.pr@gmail.com` 宛てのメールで受け付けます。
 
 ## ローカルで確認する
 
