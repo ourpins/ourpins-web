@@ -27,43 +27,52 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=5">
+<link rel="stylesheet" href="/styles.css?v=9">
 <script>document.documentElement.className += ' js';</script>
+<link rel="stylesheet" href="../../guide-pages.css?v=2">
 </head>
-<body>
+<body class="guide-page page-terms">
 <header class="site-header">
   <div class="container nav">
     <a class="nav__logo" href="/en/" aria-label="OurPins home"><img src="/assets/OurPins_transparent.png" alt="OurPins"></a>
     <nav class="nav__links" aria-label="Main navigation">
       <a href="/en/#features">Features</a>
       <a href="/en/#how">How it works</a>
+      <a href="/partners/en/">Partners</a>
       <a href="/contact/en/">Contact</a>
     </nav>
     <div class="nav__spacer"></div>
     <div class="nav__cta">
       <a class="lang-switch" href="../" hreflang="ja" aria-label="日本語"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18"/><path d="M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>日本語</a>
-      <a class="btn btn-soft" href="/en/#download">Download</a>
+      <a class="btn btn-soft" href="/en/#download">Availability</a>
       <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
     </div>
   </div>
 </header>
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
-  <a href="/en/#features">Features</a>
-  <a href="/en/#how">How it works</a>
-  <a href="/contact/en/">Contact</a>
-  <a href="/en/#download">Download (coming soon)</a>
-</nav>
+      <a href="/en/#features">Features</a>
+      <a href="/en/#how">How it works</a>
+      <a href="/partners/en/">Partners</a>
+      <a href="/contact/en/">Contact</a>
+      <a href="/en/#download">Availability</a>
+    </nav>
 <main>
   <section class="doc-hero">
     <div class="container">
+      <div class="mast-copy">
       <span class="eyebrow reveal">TERMS OF SERVICE</span>
       <h1 class="reveal" data-delay="60">Terms of Service</h1>
       <p class="lead reveal" data-delay="120">These Terms set out the conditions for using OurPins ("the App"). Please use the App only if you agree to these Terms.</p>
-      <p class="updated reveal" data-delay="160">Last updated: June 8, 2026 ・ <a href="../" hreflang="ja">日本語</a></p>
+      <p class="updated reveal" data-delay="160">Last updated: November 11, 2026 ・ <a href="../" hreflang="ja">日本語</a></p>
+      </div>
+      <div class="map-ticket" aria-hidden="true">
+        <span class="ticket-pin"></span>
+        <span class="ticket-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h4M9 12h6m-6 4h6"/></svg></span>
+      </div>
     </div>
   </section>
   <div class="container">
-    <div class="doc">
+    <div class="doc policy-layout">
       <div class="toc reveal">
         <h2>Contents</h2>
         <ul>
@@ -80,6 +89,7 @@
           <li><a href="#t11">11. Contact</a></li>
         </ul>
       </div>
+      <div class="policy-text">
 
       <section id="t1"><h2><span class="h2num">1</span>Scope</h2>
         <p>These Terms govern the conditions for providing the App and the rights and obligations between users and our team, and apply to everything related to use of the App. Separate rules and guidelines we set out within the App (such as the <a href="/community-guidelines/en/">Community Guidelines</a>) form part of these Terms.</p>
@@ -94,11 +104,12 @@
         </ol>
       </section>
       <section id="t3"><h2><span class="h2num">3</span>Fees</h2>
-        <p>The App is free to use. However, communication charges and similar costs needed to use the App are borne by the user. If we offer paid features in the future, we will clearly state their content and price in advance.</p>
+        <p>Core features are free. Users pay their own data charges. Where paid features or items are offered, the purchase screen shows the price, duration and renewal terms. Manage or cancel subscriptions through the store where you purchased them.</p>
       </section>
       <section id="t4"><h2><span class="h2num">4</span>Groups &amp; sharing</h2>
         <ol>
-          <li>The App lets you invite members with an invite code and share places, plans, memories, and more within a group. Information you post is shared with and shown to members of the same group.</li>
+          <li>The App lets you invite members with an invite code and share pins, lists and visit posts on a group map. Information you post is shared with and shown to members of the same group.</li>
+          <li>When you select friends and start location sharing, they can see your position while you use the App. Obtain the person’s permission before passing their location on to anyone else.</li>
           <li>You are responsible for choosing who you share an invite code with.</li>
           <li>You shall not post information to the App that you do not wish to share.</li>
         </ol>
@@ -152,6 +163,7 @@
       </div>
     </div>
   </div>
+  </div>
 </main>
 
 <footer class="site-footer">
@@ -159,18 +171,42 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <img src="/assets/OurPins_transparent.png" alt="OurPins">
-        <p>A shared map app that keeps your friends' "let's go here" alive — from reactions to plans to memories.</p>
+        <p>A shared map for places you want to go and photos from the places you’ve visited.</p>
       </div>
-      <div class="footer__col"><h4>Product</h4><ul><li><a href="/en/#features">Features</a></li><li><a href="/en/#how">How it works</a></li></ul></div>
-      <div class="footer__col"><h4>Legal</h4><ul><li><a href="/privacy/en/">Privacy Policy</a></li><li><a href="/terms/en/">Terms of Service</a></li><li><a href="/community-guidelines/en/">Community Guidelines</a></li><li><a href="/delete-account/en/">Account deletion</a></li></ul></div>
-      <div class="footer__col"><h4>Support</h4><ul><li><a href="/contact/en/">Contact</a></li></ul></div>
+      <div class="footer__col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/en/#features">Features</a></li>
+          <li><a href="/en/#how">How it works</a></li>
+          <li><a href="/partners/en/">Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy/en/">Privacy Policy</a></li>
+          <li><a href="/terms/en/">Terms of Service</a></li>
+          <li><a href="/community-guidelines/en/">Community Guidelines</a></li>
+          <li><a href="/delete-account/en/">Account deletion</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/contact/en/">Contact</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer__bottom">
       <small>© <span data-year>2026</span> OurPins</small>
-      <div class="links"><a href="/privacy/en/">Privacy</a><a href="/terms/en/">Terms</a><a href="/contact/en/">Contact</a></div>
+      <div class="links">
+        <a href="/privacy/en/">Privacy</a>
+        <a href="/terms/en/">Terms</a>
+        <a href="/contact/en/">Contact</a>
+      </div>
     </div>
   </div>
 </footer>
-<script src="/site.js?v=5"></script>
+<script src="/site.js?v=7"></script>
 </body>
 </html>

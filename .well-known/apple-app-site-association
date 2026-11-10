@@ -2,9 +2,10 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["REPLACE_WITH_APPLE_TEAM_ID.app.ourpins"],
+        "appIDs": ["GJ6D2R4LS9.app.ourpins"],
         "components": [
-          { "/": "/p/*", "comment": "Shared place links open in the OurPins app" }
+          { "/": "/p/*", "comment": "Shared place links open in the OurPins app" },
+          { "/": "/join/*", "comment": "Group invitations open in the OurPins app" }
         ]
       }
     ]

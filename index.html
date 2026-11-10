@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OurPins — みんなの行きたいが、地図でわかる。友達との共同マップアプリ</title>
-<meta name="description" content="OurPinsは、友達やカップルの「ここ行こう」をひとつの地図にまとめる共同マップアプリ。気になる場所をピンして反応、空き時間から予定を決めて、写真で思い出に。iOS / Android 近日公開。">
+<title>OurPins — 友達とつくる「行きたい」の地図</title>
+<meta name="description" content="OurPinsは、気になるお店やおでかけ先を友達と保存する共同マップアプリ。地図と写真の一覧から行き先を選び、訪問日や写真、感想を投稿できます。">
 <link rel="canonical" href="https://ourpins.app/">
 <link rel="alternate" hreflang="ja" href="https://ourpins.app/">
 <link rel="alternate" hreflang="en" href="https://ourpins.app/en/">
 <link rel="alternate" hreflang="x-default" href="https://ourpins.app/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="OurPins">
-<meta property="og:title" content="OurPins — みんなの行きたいが、地図でわかる">
-<meta property="og:description" content="友達との「ここ行こう」を、ひとつの地図に。ピンして、反応して、予定にして、思い出に。iOS / Android 近日公開。">
+<meta property="og:title" content="OurPins — 友達とつくる「行きたい」の地図">
+<meta property="og:description" content="OurPinsは、気になるお店やおでかけ先を友達と保存する共同マップアプリ。地図と写真の一覧から行き先を選び、訪問日や写真、感想を投稿できます。">
 <meta property="og:url" content="https://ourpins.app/">
 <meta property="og:image" content="https://ourpins.app/assets/pins_icon_transparent.png">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OurPins — みんなの行きたいが、地図でわかる">
-<meta name="twitter:description" content="友達との「ここ行こう」を、ひとつの地図に。iOS / Android 近日公開。">
+<meta name="twitter:title" content="OurPins — 友達とつくる「行きたい」の地図">
+<meta name="twitter:description" content="OurPinsは、気になるお店やおでかけ先を友達と保存する共同マップアプリ。地図と写真の一覧から行き先を選び、訪問日や写真、感想を投稿できます。">
 <meta name="twitter:image" content="https://ourpins.app/assets/pins_icon_transparent.png">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" type="image/png" href="assets/pins_icon_transparent.png">
@@ -26,292 +26,137 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=9">
 <script>document.documentElement.className += ' js';</script>
+<link rel="stylesheet" href="landing.css?v=6">
 </head>
-<body>
+<body class="landing">
 
 <!-- ===== Header ===== -->
 <header class="site-header">
   <div class="container nav">
     <a class="nav__logo" href="./" aria-label="OurPins ホーム"><img src="assets/OurPins_transparent.png" alt="OurPins"></a>
     <nav class="nav__links" aria-label="メインナビゲーション">
-      <a href="#features">機能</a>
-      <a href="#how">使い方</a>
-      <a href="partners/">パートナー募集</a>
-      <a href="contact/">お問い合わせ</a>
+      <a href="/#features">機能</a>
+      <a href="/#how">使い方</a>
+      <a href="/partners/">パートナー募集</a>
+      <a href="/contact/">お問い合わせ</a>
     </nav>
     <div class="nav__spacer"></div>
     <div class="nav__cta">
       <a class="lang-switch" href="en/" hreflang="en" aria-label="English"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18"/><path d="M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>EN</a>
-      <a class="btn btn-soft" href="#download">ダウンロード</a>
+      <a class="btn btn-soft" href="#download">配信情報</a>
       <button class="nav__toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
     </div>
   </div>
 </header>
 <nav class="mobile-menu" id="mobileMenu" aria-label="モバイルナビゲーション">
-  <a href="#features">機能</a>
-  <a href="#how">使い方</a>
-  <a href="partners/">パートナー募集</a>
-  <a href="contact/">お問い合わせ</a>
-  <a href="#download">ダウンロード（近日公開）</a>
-</nav>
+      <a href="/#features">機能</a>
+      <a href="/#how">使い方</a>
+      <a href="/partners/">パートナー募集</a>
+      <a href="/contact/">お問い合わせ</a>
+      <a href="/#download">配信情報</a>
+    </nav>
 
 <main>
-
-  <!-- ===== Hero ===== -->
-  <section class="hero" data-hero data-screen-label="ヒーロー">
-    <span class="pin-deco" style="top:18%;left:6%"><i></i></span>
-    <span class="pin-deco pin-deco--lg" style="top:60%;left:3%"><i></i></span>
-    <span class="pin-deco" style="top:26%;right:7%"><i></i></span>
-    <span class="pin-deco pin-deco--lg" style="bottom:12%;right:5%"><i></i></span>
-    <div class="container hero__grid">
-      <div class="hero__copy">
-        <h1 class="hero-anim" data-seq="0">みんなの行きたいが、<br><span class="accent">地図でわかる</span></h1>
-        <p class="hero__sub hero-anim" data-seq="1">気になる場所をピンして、グループでリアルタイムに共有。「ここ行こう」を忘れず、反応 → 予定 → 思い出までつなぐ、友達との共同マップアプリです。</p>
-        <div class="hero__cta hero-anim" data-seq="2">
-          <div class="store-row">
-            <span class="store-badge" role="img" aria-label="App Store：近日公開">
-              <svg class="store-badge__glyph" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="currentColor"/><circle cx="12" cy="12" r="3.1" fill="#222"/></svg>
-              <span class="store-badge__txt"><small>App Store</small><strong>近日公開</strong></span>
-              <span class="store-badge__tag">Coming soon</span>
-            </span>
-            <span class="store-badge" role="img" aria-label="Google Play：近日公開">
-              <svg class="store-badge__glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5 L19 12 L5 20.5 Z" fill="currentColor"/></svg>
-              <span class="store-badge__txt"><small>Google Play</small><strong>近日公開</strong></span>
-              <span class="store-badge__tag">Coming soon</span>
-            </span>
-          </div>
-        </div>
-        <p class="hero__note hero-anim" data-seq="3">iOS / Android 対応・リリース準備中</p>
+  <section class="pin-cover" aria-labelledby="cover-title">
+    <div class="cover-layout container">
+      <div class="cover-copy">
+        <p class="cover-kind"><i aria-hidden="true"></i>友達とつくる共同マップ</p>
+        <h1 id="cover-title"><span>今日は、</span><strong>どこ行く？</strong></h1>
+        <p>気になる喫茶店も、寄り道したい本屋も。<br>みんなの「行きたい」を、ひとつの地図に。</p>
+        <a class="cover-link brand-button" href="#features">アプリの画面を見る <b aria-hidden="true">↓</b></a>
       </div>
-      <div class="hero__phone hero-anim" data-seq="1">
-        <div class="phone" data-parallax="20">
-          <img src="assets/phone-map.png" alt="OurPinsのマップ画面。友達が行きたい場所がカテゴリ別のピンで表示されている" width="300" height="594">
+      <div class="pin-board" data-place="0">
+        <canvas class="town-map" width="750" height="600" aria-hidden="true"></canvas>
+        <div class="snapshots">
+          <figure class="postcard is-current" aria-hidden="false"><img src="assets/place-cafe.webp" alt="コーヒーと自家製プリン" fetchpriority="high"><figcaption><i aria-hidden="true"></i>喫茶 余白のプリン</figcaption></figure>
+          <figure class="postcard" aria-hidden="true"><img src="assets/place-bookshop.webp" alt="木の本棚に囲まれた店内" decoding="async"><figcaption><i aria-hidden="true"></i>本と珈琲のある時間</figcaption></figure>
+          <figure class="postcard" aria-hidden="true"><img src="assets/place-park.webp" alt="木陰のある川沿いの遊歩道" decoding="async"><figcaption><i aria-hidden="true"></i>川沿いでひと休み</figcaption></figure>
         </div>
+        <div class="pin-choices" role="group" aria-label="場所の写真を選ぶ" hidden>
+          <button class="map-choice" type="button" aria-pressed="true"><img src="assets/place-cafe.webp" alt=""><span>喫茶店</span></button>
+          <button class="map-choice" type="button" aria-pressed="false"><img src="assets/place-bookshop.webp" alt=""><span>本屋</span></button>
+          <button class="map-choice" type="button" aria-pressed="false"><img src="assets/place-park.webp" alt=""><span>公園</span></button>
+        </div>
+        <button class="motion-switch" type="button" aria-label="動きを止める" hidden><span aria-hidden="true">Ⅱ</span></button>
       </div>
     </div>
   </section>
-
-  <!-- ===== Features ===== -->
-  <section class="section" id="features">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">FEATURES</span>
-        <h2>4つの画面で、「行きたい」を<span class="accent">かたちにする</span>。</h2>
-        <p class="lead">見つける、決める、出かける、ふり返る。OurPinsは下部のタブで、友達との予定をやさしくつなぎます。</p>
-      </div>
-
-      <!-- Map -->
-      <article class="feature">
-        <div class="feature__text reveal">
-          <span class="feature__num"><b>01</b> Map</span>
-          <h3>みんなの行きたいが、<span class="accent">地図でわかる</span></h3>
-          <p>友達が「行きたい」と思った場所が、ひとつの地図に集まります。カフェ・ご飯・お出かけ先をカテゴリ別にピンして、メモや写真も一緒に。誰がどこに行きたいか、ひと目で。</p>
-          <ul class="feature__list">
-            <li>カテゴリ別にピン（カフェ／和食／買い物 …）</li>
-            <li>メモや写真を添えて登録できる</li>
-            <li>グループ全員の「行きたい」が1枚の地図に</li>
-          </ul>
-        </div>
-        <div class="feature__media reveal" data-delay="120">
-          <div class="phone phone--sm" data-parallax="12"><img src="assets/phone-map.png" alt="マップ画面" width="274" height="542"></div>
+  <section id="features" class="gallery-section"><div class="container">
+    <h2>行きたい場所が、<br>思い出になるまで。</h2>
+    <div class="screen-grid" data-screen-gallery>
+      <article class="screen-story" id="screen-map">
+        <div class="screen-stage"><img src="assets/screen-map.webp" alt="OurPinsの地図画面" loading="lazy" width="393" height="851"></div>
+        <div class="story-copy"><p class="screen-name">地図</p><h3>近くのピンを見つける</h3><p>写真のピンをタップして、お店の詳細へ。リストを切り替えると、カフェ巡りや週末のおでかけなど、目的に合う場所を探せます。</p>
         </div>
       </article>
-
-      <!-- Spots -->
-      <article class="feature reverse">
-        <div class="feature__text reveal">
-          <span class="feature__num"><b>02</b> Spots</span>
-          <h3>人気スポットを、<span class="accent">すぐ発見</span></h3>
-          <p>みんなの反応が集まる場所をランキングで表示。Hot / New / Nearby / 行った、の切り口で、いまグループで盛り上がっているスポットがわかります。</p>
-          <ul class="feature__list">
-            <li>反応の集まる場所をランキング表示</li>
-            <li>Hot・New・近く・行った で絞り込み</li>
-            <li>友達のあいだで人気の場所に出会える</li>
-          </ul>
-        </div>
-        <div class="feature__media reveal" data-delay="120">
-          <div class="phone phone--sm" data-parallax="12"><img src="assets/phone-spots.png" alt="スポットのランキング画面" width="274" height="542"></div>
+      <article class="screen-story" id="screen-list">
+        <div class="screen-stage"><img src="assets/screen-list.webp" alt="OurPinsの一覧画面" loading="lazy" width="393" height="851"></div>
+        <div class="story-copy"><p class="screen-name">一覧</p><h3>写真から行き先を選ぶ</h3><p>保存した場所を写真で見比べて、気になるお店には「行きたい」を。友達と好みが重なったお店も見つかります。</p>
         </div>
       </article>
-
-      <!-- Plan -->
-      <article class="feature">
-        <div class="feature__text reveal">
-          <span class="feature__num"><b>03</b> Plan</span>
-          <h3>候補から、<span class="accent">予定が決まる</span></h3>
-          <p>候補日を出し合って投票。みんなの空き時間をもとに、行ける日を提案します。決まった予定は、そのまま端末のカレンダーへ。</p>
-          <ul class="feature__list">
-            <li>候補日を出し合って投票で決定</li>
-            <li>空き時間から行ける日を提案</li>
-            <li>端末のカレンダーと連携</li>
-          </ul>
-        </div>
-        <div class="feature__media reveal" data-delay="120">
-          <div class="phone phone--sm" data-parallax="12"><img src="assets/phone-plan.png" alt="予定づくりの画面" width="274" height="542"></div>
-        </div>
-      </article>
-
-      <!-- Memories -->
-      <article class="feature reverse">
-        <div class="feature__text reveal">
-          <span class="feature__num"><b>04</b> Memories</span>
-          <h3>行った場所が、<span class="accent">思い出になる</span></h3>
-          <p>行った場所は、写真とひとことで思い出に。グループのアルバムとして、これまでの履歴が自然に残っていきます。</p>
-          <ul class="feature__list">
-            <li>写真＋ひとことで記録</li>
-            <li>グループのアルバムに自動でまとまる</li>
-            <li>行った場所の履歴をふり返れる</li>
-          </ul>
-        </div>
-        <div class="feature__media reveal" data-delay="120">
-          <div class="phone phone--sm" data-parallax="12"><img src="assets/phone-memories.png" alt="思い出アルバムの画面" width="274" height="542"></div>
+      <article class="screen-story" id="screen-posts">
+        <div class="screen-stage"><img src="assets/screen-posts.webp" alt="プリンの写真、感想、訪問日、星評価を入力した訪問投稿画面" loading="lazy" width="393" height="851"></div>
+        <div class="story-copy"><p class="screen-name">投稿</p><h3>行った日のことを残す</h3><p>訪れたピンを選んで、訪問日や写真、星評価、ひとことを記録。友達の投稿には、いいねやコメントを送れます。</p>
         </div>
       </article>
     </div>
+    <p class="preview-note">画面はデモデータを使ったアプリのWebプレビューです。</p>
+  </div></section>
+  <section id="how" class="guide container">
+    <figure><img src="assets/place-bookshop.webp" loading="lazy" width="1080" height="1080" alt="木の本棚に本が並ぶ店内"></figure>
+    <div><h2>「行きたい」を、<br>ひとつの地図に。</h2><div class="guide-steps"><div><h3>場所と元のリンクを保存</h3><p>店名や住所で検索するか、地図で場所を指定。きっかけになったInstagramの投稿やYouTubeの動画も、リンクをピンに添えておけます。</p></div>
+<div><h3>一緒に行く人と地図を共有</h3><p>ひとり用の地図に集めたり、グループの地図に友達を招いたり。旅先の本屋も近所の喫茶店も、好きなリストにまとめられます。</p></div>
+<div><h3>待ち合わせには位置共有を</h3><p>位置共有は初期設定でオフ。共有したい友達を選んで開始すると、アプリを使っている間の現在地が相手の地図に表示されます。</p></div></div></div>
   </section>
-
-  <!-- ===== How it works ===== -->
-  <section class="section surface" id="how">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">HOW IT WORKS</span>
-        <h2>3ステップで、<span class="accent">出かけたくなる</span>。</h2>
-        <p class="lead">むずかしい設定はいりません。グループを作って、ピンして、出かけるだけ。</p>
-      </div>
-      <div class="steps">
-        <div class="step reveal" data-stagger="0">
-          <div class="step__n">1</div>
-          <h3>グループを作る</h3>
-          <p>招待コードを送るだけで、友達やカップルを招待。ひとつの地図をみんなで共有できます。</p>
-        </div>
-        <div class="step reveal" data-stagger="1">
-          <div class="step__n">2</div>
-          <h3>行きたい場所をピン</h3>
-          <p>気になるカフェやお店をピン。「行きたい / かなり / 行った」で、気軽に反応し合えます。</p>
-        </div>
-        <div class="step reveal" data-stagger="2">
-          <div class="step__n">3</div>
-          <h3>予定化して思い出に</h3>
-          <p>候補から予定を決めて、出かけたら写真で思い出に。追加や反応はリアルタイムで全員に同期。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Extras ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">MORE</span>
-        <h2>友達同士で、<span class="accent">気持ちよく使える</span>。</h2>
-        <p class="lead">日々の「ちょっと行きたい」を、無理なく共有できる小さな工夫。</p>
-      </div>
-      <div class="grid-3">
-        <div class="card reveal" data-stagger="0">
-          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9-9.2C1.6 7.4 3.4 4.5 6.4 4.5c1.9 0 3.2 1.1 3.9 2.3C11 5.6 12.3 4.5 14.2 4.5c3 0 4.8 2.9 3.4 6.3C19 15.7 12 20 12 20Z"/></svg></div>
-          <h3>リアクション</h3>
-          <p>「行きたい / かなり / 行った」で気持ちを共有。誰が押したかもわかります。</p>
-        </div>
-        <div class="card reveal" data-stagger="1">
-          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 A2 2 0 0 1 5 6.5 H19 A2 2 0 0 1 21 8.5 V10 a2 2 0 0 0 0 4 v1.5 a2 2 0 0 1-2 2 H5 a2 2 0 0 1-2-2 V14 a2 2 0 0 0 0-4 Z"/><path d="M12 7v10" stroke-dasharray="1.5 2.4"/></svg></div>
-          <h3>招待コード</h3>
-          <p>コードを送るだけでグループに参加。ひとつの地図をすぐに共有できます。</p>
-        </div>
-        <div class="card reveal" data-stagger="2">
-          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 16"/><path d="M4 20v-4h4"/></svg></div>
-          <h3>リアルタイム同期</h3>
-          <p>追加も反応も、その場で全員の画面に反映。離れていても、ひとつの地図を一緒に。</p>
-        </div>
-        <div class="card reveal" data-stagger="0">
-          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg></div>
-          <h3>お知らせ通知</h3>
-          <p>新しいピンや、予定が決まったときにプッシュでお知らせ。見逃しません。</p>
-        </div>
-        <div class="card reveal" data-stagger="1">
-          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="9.5" rx="2.2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></div>
-          <h3>グループ内だけで共有</h3>
-          <p>共有はメンバーの中だけ。場所も思い出も、外部には公開されません。</p>
-        </div>
-        <div class="card reveal" data-stagger="2">
-          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1Z"/><path d="M14 7l3 3"/></svg></div>
-          <h3>メモ＆写真</h3>
-          <p>ピンにメモや写真を添えて、「行きたい理由」も一緒に残せます。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA band ===== -->
-  <section class="section section--tight" id="download">
-    <div class="container">
-      <div class="cta-band reveal">
-        <span class="pin-deco pin-deco--lg" style="top:14%;left:8%"></span>
-        <img class="cta-band__icon" src="assets/pins_icon_transparent.png" alt="OurPins アプリアイコン" width="64" height="64" data-pindrop>
-        <h2>友達との「ここ行こう」を、<br>ひとつの地図に。</h2>
-        <p>OurPins は iOS / Android で近日公開予定です。配信のお知らせを、楽しみにお待ちください。</p>
-        <div class="store-row">
-          <span class="store-badge" role="img" aria-label="App Store：近日公開">
-            <svg class="store-badge__glyph" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="currentColor"/><circle cx="12" cy="12" r="3.1" fill="#f7f7f7"/></svg>
-            <span class="store-badge__txt"><small>App Store</small><strong>近日公開</strong></span>
-            <span class="store-badge__tag">Coming soon</span>
-          </span>
-          <span class="store-badge" role="img" aria-label="Google Play：近日公開">
-            <svg class="store-badge__glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5 L19 12 L5 20.5 Z" fill="currentColor"/></svg>
-            <span class="store-badge__txt"><small>Google Play</small><strong>近日公開</strong></span>
-            <span class="store-badge__tag">Coming soon</span>
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <section id="download" class="release"><div class="container"><h2>アプリの配信情報</h2><p>OurPinsは配信準備中です。アプリについてのご質問は、お問い合わせ窓口へ。</p><a href="contact/">お問い合わせ <span aria-hidden="true">↗</span></a></div></section>
 </main>
+<script defer src="gallery.js?v=3"></script>
 
 <!-- ===== Footer ===== -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
-        <img src="assets/OurPins_transparent.png" alt="OurPins">
-        <p>友達との「ここ行こう」を忘れず、反応 → 予定 → 思い出までつなげる共同マップアプリ。</p>
+        <img src="/assets/OurPins_transparent.png" alt="OurPins">
+        <p>友達と行きたい場所を地図に集めて、訪れた日の写真と感想を残せる共同マップアプリ。</p>
       </div>
       <div class="footer__col">
         <h4>製品</h4>
         <ul>
-          <li><a href="#features">機能</a></li>
-          <li><a href="#how">使い方</a></li>
-          <li><a href="partners/">パートナー募集</a></li>
+          <li><a href="/#features">機能</a></li>
+          <li><a href="/#how">使い方</a></li>
+          <li><a href="/partners/">パートナー募集</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h4>法務</h4>
         <ul>
-          <li><a href="privacy/">プライバシーポリシー</a></li>
-          <li><a href="terms/">利用規約</a></li>
-          <li><a href="community-guidelines/">コミュニティガイドライン</a></li>
-          <li><a href="delete-account/">アカウント削除</a></li>
+          <li><a href="/privacy/">プライバシーポリシー</a></li>
+          <li><a href="/terms/">利用規約</a></li>
+          <li><a href="/community-guidelines/">コミュニティガイドライン</a></li>
+          <li><a href="/delete-account/">アカウント削除</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h4>サポート</h4>
         <ul>
-          <li><a href="contact/">お問い合わせ</a></li>
+          <li><a href="/contact/">お問い合わせ</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
       <small>© <span data-year>2026</span> OurPins 運営チーム</small>
       <div class="links">
-        <a href="privacy/">プライバシー</a>
-        <a href="terms/">規約</a>
-        <a href="contact/">お問い合わせ</a>
+        <a href="/privacy/">プライバシー</a>
+        <a href="/terms/">規約</a>
+        <a href="/contact/">お問い合わせ</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="site.js?v=5"></script>
+<script src="site.js?v=7"></script>
 </body>
 </html>

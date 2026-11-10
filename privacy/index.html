@@ -26,43 +26,52 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=5">
+<link rel="stylesheet" href="../styles.css?v=9">
 <script>document.documentElement.className += ' js';</script>
+<link rel="stylesheet" href="../guide-pages.css?v=2">
 </head>
-<body>
+<body class="guide-page page-privacy">
 <header class="site-header">
   <div class="container nav">
     <a class="nav__logo" href="../" aria-label="OurPins ホーム"><img src="../assets/OurPins_transparent.png" alt="OurPins"></a>
     <nav class="nav__links" aria-label="メインナビゲーション">
-      <a href="../#features">機能</a>
-      <a href="../#how">使い方</a>
-      <a href="../contact/">お問い合わせ</a>
+      <a href="/#features">機能</a>
+      <a href="/#how">使い方</a>
+      <a href="/partners/">パートナー募集</a>
+      <a href="/contact/">お問い合わせ</a>
     </nav>
     <div class="nav__spacer"></div>
     <div class="nav__cta">
       <a class="lang-switch" href="en/" hreflang="en" aria-label="English"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18"/><path d="M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>EN</a>
-      <a class="btn btn-soft" href="../#download">ダウンロード</a>
+      <a class="btn btn-soft" href="../#download">配信情報</a>
       <button class="nav__toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
     </div>
   </div>
 </header>
 <nav class="mobile-menu" id="mobileMenu" aria-label="モバイルナビゲーション">
-  <a href="../#features">機能</a>
-  <a href="../#how">使い方</a>
-  <a href="../contact/">お問い合わせ</a>
-  <a href="../#download">ダウンロード（近日公開）</a>
-</nav>
+      <a href="/#features">機能</a>
+      <a href="/#how">使い方</a>
+      <a href="/partners/">パートナー募集</a>
+      <a href="/contact/">お問い合わせ</a>
+      <a href="/#download">配信情報</a>
+    </nav>
 <main>
   <section class="doc-hero">
     <div class="container">
+      <div class="mast-copy">
       <span class="eyebrow reveal">PRIVACY POLICY</span>
       <h1 class="reveal" data-delay="60">プライバシーポリシー</h1>
       <p class="lead reveal" data-delay="120">OurPins（以下「本アプリ」）は、ユーザーのプライバシーを大切にします。本ポリシーは、取得する情報とその取り扱いについて説明するものです。</p>
-      <p class="updated reveal" data-delay="160">最終更新日：2026年6月18日 ・ <a href="en/" hreflang="en">English</a></p>
+      <p class="updated reveal" data-delay="160">最終更新日：2026年11月11日 ・ <a href="en/" hreflang="en">English</a></p>
+      </div>
+      <div class="map-ticket" aria-hidden="true">
+        <span class="ticket-pin"></span>
+        <span class="ticket-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 3v6c0 5-4 8-8 10-4-2-8-5-8-10V6z"/><path d="m8 12 3 3 5-6"/></svg></span>
+      </div>
     </div>
   </section>
   <div class="container">
-    <div class="doc">
+    <div class="doc policy-layout">
       <div class="toc reveal">
         <h2>目次</h2>
         <ul>
@@ -78,6 +87,7 @@
           <li><a href="#s10">10. お問い合わせ</a></li>
         </ul>
       </div>
+      <div class="policy-text">
 
       <section id="s1"><h2><span class="h2num">1</span>はじめにと適用範囲</h2>
         <p>本ポリシーは、OurPins 運営チーム（以下「当チーム」）が提供する共同マップアプリ「OurPins」（本アプリ）および関連するウェブサイトにおける、個人情報その他の情報の取り扱いについて定めるものです。ユーザーは、本アプリを利用することで、本ポリシーの内容に同意したものとみなされます。</p>
@@ -89,23 +99,24 @@
         <h3>(1) アカウント情報</h3>
         <ul>
           <li>メールアドレス、パスワード。認証基盤である Supabase Auth が安全に管理し、パスワードはハッシュ化して保存されます。当チームが平文のパスワードを保持することはありません。新規登録・パスワード再設定の際は、本人確認のための確認コードをメールで送信します。</li>
-          <li>Google アカウントでサインインする場合、Google から提供される基本的なプロフィール情報（メールアドレス、表示名など）を、アカウントの作成・認証のために利用します。</li>
+          <li>AppleまたはGoogleでサインインすると、認証用の識別子と、提供されたメールアドレスや表示名をアカウントの作成・認証に使用します。</li>
           <li>表示名、一意のユーザー名（@ハンドル）、自己紹介（任意）、アバター（頭文字・絵文字、または任意でアップロードするプロフィール写真）、テーマカラー。</li>
         </ul>
 
         <h3>(2) ユーザーが本アプリ内で作成・投稿する情報</h3>
         <ul>
-          <li>グループ名、グループの説明、招待コード。</li>
-          <li>場所のピン（タイトル、エリア、メモ、カテゴリ／コレクション、写真、地図上の位置情報）。</li>
-          <li>リアクション（「行きたい」「かなり」「行った」および絵文字リアクション）、コメント。</li>
-          <li>候補日とその投票、決定した予定。</li>
-          <li>思い出（メモ、気分、写真）。</li>
-          <li>友達（フレンド）関係。@ハンドルを使った友達の申請・承認の状況、および誰とつながっているかの情報。</li>
+          <li>個人用・グループの地図、メンバー、招待コード、リスト名。</li>
+          <li>場所のピンと元のリンク、住所、地図上の位置、写真、メモ、「行きたい」「行った」の記録。</li>
+          <li>訪問投稿に添えた写真、訪問日、星評価、感想、投稿へのいいねとコメント。</li>
+          <li>友達の申請・承認とブロックの状態。通報時には通報者、理由、補足、対象の投稿内容を保存し、運営チームが確認します。</li>
+          <li>SNSからの取り込みを使うと、選択したリンク・本文・画像を処理します。場所の候補を抽出するため、元の投稿先にアクセスし、リンクや本文、添付したスクリーンショットをOpenAIに送信する場合があります。</li>
         </ul>
 
         <h3>(3) 位置情報</h3>
         <ul>
-          <li>ユーザーが許可した場合に限り、近くの行きたい場所を地図に表示する目的で、端末の現在地（使用中のみ）を利用します。現在地は地図表示のために利用するもので、当チームのサーバーに継続的に記録・保存するものではありません。</li>
+          <li>ユーザーが位置情報の利用を許可した場合、端末の現在地を地図表示や近くの場所の検索に利用します。</li>
+          <li>友達への位置共有は初期状態ではオフです。ユーザーが共有先の友達を選んで共有を開始した場合に限り、アプリ使用中の最新の位置（緯度・経度）、精度、更新時刻を Supabase 上に一時保存し、選択した友達の地図に表示します。友達やグループの全員へ自動で共有することはありません。</li>
+          <li>移動履歴は作成しません。2分以上更新されていない位置は表示対象から除外し、期限切れの位置は定期的に削除します。共有停止時は保存した現在地を削除します。通信できない場合の停止要求は通信回復時に再送し、更新が止まった位置は表示期限により非表示となります。</li>
           <li>ユーザーが場所のピンに登録した位置情報（緯度・経度等）は、グループ内での共有のために保存されます。</li>
         </ul>
 
@@ -115,31 +126,28 @@
           <li>通知設定、ピンの既読状態などのアプリ内設定。</li>
         </ul>
 
-        <h3>(5) フィードバック情報</h3>
-        <ul>
-          <li>ユーザーがアプリ内のフィードバック機能を利用した場合に、入力された種別（不具合・使いにくい・欲しい機能・その他）および内容、ならびに任意で入力された返信用の連絡先を取得します。</li>
-          <li>送信時に、アプリのバージョン、プラットフォーム種別、関連する画面の情報を自動的に付加することがあります。返信を希望されない限り、連絡先の入力は任意です。</li>
-        </ul>
+        <h3>(5) お問い合わせ</h3>
+        <p>アプリ内からのお問い合わせには、入力した内容、アカウントID、登録メールアドレスを使用します。回答や履歴管理のために内容を保存し、メール配信サービスを通じて運営に通知する場合があります。</p>
 
         <h3>(6) 利用状況・診断情報（分析およびクラッシュ情報）</h3>
         <p>本アプリの品質向上のため、利用状況の分析および不具合・クラッシュの検知を行います。</p>
         <ul>
-          <li><strong>利用状況の分析：</strong>Firebase Analytics を用いて、匿名の利用イベント（どの機能が使われたか、画面の利用状況など）を収集します。氏名・メールアドレス・コメント本文・写真・正確な位置情報は送信しません。イベントに付随する情報は、カテゴリやおおまかなグループ人数などの抽象化された値に限定しています。</li>
-          <li><strong>クラッシュ・エラー情報：</strong>Sentry を用いて、アプリのクラッシュやエラーの診断情報（エラーの内容、端末・OS の種別、発生時のアプリ内の操作履歴など）を収集します。</li>
-          <li>これらの分析・計測は、アプリ内の設定（プロフィール → プライバシー →「利用状況の分析に協力」）からいつでも停止できます。</li>
-          <li>当チームは、これらの情報を広告目的や、他社のアプリ・ウェブサイトをまたいだ追跡（トラッキング）には利用しません。広告識別子（IDFA 等）は収集しません。</li>
+          <li>「設定」→「プライバシー」→「利用状況の送信」が有効な場合、対象の操作名、アカウントID、時刻をSupabaseに記録します。この設定で以降の送信を停止できます。利用イベントには投稿本文・写真・正確な現在地を含めません。</li>
+          <li>不具合の診断にはSentryを利用し、有効な場合にエラーの内容、アプリや端末の情報、発生時の操作に関する診断情報を送信します。</li>
         </ul>
+
+        <h3>広告と購入に関する情報</h3>
+        <p>広告を表示する場合はGoogle AdMobに非パーソナライズ広告をリクエストします。iOSではトラッキングの許可を得てから広告SDKを起動します。広告配信・計測・不正防止のため、SDKが端末の識別子、IPアドレス、広告の表示や操作、診断情報を扱う場合があります。広告の同意設定は、対象となる場合に「設定」→「プライバシー」から変更できます。</p>
+        <p>アプリ内購入が有効な場合、購入の確認や復元のため、RevenueCatがアプリのユーザー識別子、ストアの購入履歴、利用権の状態を扱います。</p>
 
         <h3>(7) 端末の権限</h3>
         <p>本アプリは以下の権限を、それぞれの目的のためにユーザーの許可を得て使用します。許可はいつでも端末の設定から変更できます。</p>
         <table>
           <thead><tr><th>権限</th><th>利用目的</th></tr></thead>
           <tbody>
-            <tr><th>位置情報（使用中のみ）</th><td>近くの行きたい場所を地図に表示するため</td></tr>
-            <tr><th>写真ライブラリ</th><td>場所や思い出の写真を選択・設定するため</td></tr>
-            <tr><th>メディアライブラリ</th><td>思い出の写真を端末のギャラリーに保存するため</td></tr>
-            <tr><th>カレンダー</th><td>決まった予定を端末のカレンダーに追加するため</td></tr>
-            <tr><th>通知</th><td>コメント・予定・新しい場所などのお知らせを送るため</td></tr>
+            <tr><th>位置情報（使用中のみ）</th><td>地図上の現在地表示、近くの場所の検索、ユーザーが有効にした場合の選択した友達への位置共有のため</td></tr>
+            <tr><th>写真ライブラリ</th><td>ピンや訪問投稿、プロフィールの写真を選択・設定するため</td></tr>
+            <tr><th>通知</th><td>投稿へのコメント・いいねなどのお知らせを送るため</td></tr>
           </tbody>
         </table>
       </section>
@@ -148,7 +156,7 @@
         <p>取得した情報は、次の目的のために利用します。</p>
         <ul>
           <li>本アプリの提供、ユーザーの認証、アカウントの管理のため</li>
-          <li>グループ内での場所・予定・思い出などの共有およびリアルタイム同期のため</li>
+          <li>グループ内でのピン・リスト・訪問投稿などの共有およびリアルタイム同期のため</li>
           <li>プッシュ通知・アプリ内通知の配信のため</li>
           <li>不具合の調査・対応、お問い合わせ・フィードバックへの対応のため</li>
           <li>利用状況の分析およびクラッシュ・不具合の検知を通じた、本アプリの改善および新機能の検討のため</li>
@@ -157,8 +165,8 @@
       </section>
 
       <section id="s4"><h2><span class="h2num">4</span>グループ内での共有</h2>
-        <p>本アプリは、招待されたメンバーで「ひとつの地図」を共有することを目的としたサービスです。ユーザーが作成したピン、コメント、リアクション、写真、思い出、予定、表示名やアバター等は、所属するグループのメンバーに表示されます。誰がどのリアクションをしたか等もメンバーに表示されます。</p>
-        <p>共有はグループ内に限定され、当チームがコンテンツを一般に公開することはありません。共有したくない情報は本アプリに投稿しないようご注意ください。なお、サービスの性質上、グループに共有済みの一部コンテンツは、他メンバーの環境に残る場合があります。</p>
+        <p>「自分だけ」の地図は自分用です。グループの地図に保存したピン、訪問投稿、写真、コメント、反応は、そのグループのメンバーに表示されます。現在地の共有先はグループとは別に、自分で選択した友達です。</p>
+        <p>メンバーが既に保存した写真や、他の人に渡した写真URLは、ブロック後も相手の手元に残ることがあります。写真URLを知っている人が画像を開ける場合があるため、共有する写真を確認してください。</p>
       </section>
 
       <section id="s5"><h2><span class="h2num">5</span>外部サービスの利用</h2>
@@ -168,10 +176,13 @@
           <tbody>
             <tr><th>Supabase</th><td>認証、データベース、写真ストレージ（投稿データの保存先）</td><td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></td></tr>
             <tr><th>Expo (Expo Application Services)</th><td>アプリ配信基盤およびプッシュ通知の配信</td><td><a href="https://expo.dev/privacy" target="_blank" rel="noopener">expo.dev/privacy</a></td></tr>
-            <tr><th>Resend (Resend, Inc.)</th><td>認証メール（確認コード等）の送信</td><td><a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">resend.com/legal/privacy-policy</a></td></tr>
+            <tr><th>Resend (Resend, Inc.)</th><td>認証メール・お問い合わせの通知</td><td><a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">resend.com/legal/privacy-policy</a></td></tr>
             <tr><th>Google（Google サインイン）</th><td>Google アカウントによるログイン認証</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
-            <tr><th>Google Maps Platform</th><td>地図の表示</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
-            <tr><th>Google (Firebase Analytics)</th><td>利用状況の分析</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td></tr>
+            <tr><th>Google Maps Platform</th><td>地図の表示・入力した地名などによる場所検索</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
+            <tr><th>Apple</th><td>Appleでのサインイン</td><td><a href="https://www.apple.com/legal/privacy/">Apple</a></td></tr>
+            <tr><th>Google AdMob</th><td>広告の配信・同意管理</td><td><a href="https://policies.google.com/privacy">Google AdMob</a></td></tr>
+            <tr><th>RevenueCat</th><td>購入確認・復元</td><td><a href="https://www.revenuecat.com/privacy">RevenueCat</a></td></tr>
+            <tr><th>OpenAI</th><td>SNS投稿からの場所候補の抽出</td><td><a href="https://openai.com/policies/privacy-policy/">OpenAI</a></td></tr>
             <tr><th>Sentry (Functional Software, Inc.)</th><td>クラッシュ・エラーの検知</td><td><a href="https://sentry.io/privacy/" target="_blank" rel="noopener">sentry.io/privacy</a></td></tr>
           </tbody>
         </table>
@@ -185,7 +196,7 @@
           <li>ユーザーは、本アプリ内の機能により、自身が作成したコンテンツ（ピン・コメント・写真等）を削除できます。</li>
           <li>ユーザーは、本アプリ内からいつでもアカウントを削除できます。削除に伴い、アカウント情報や投稿コンテンツなどの主要なデータは削除されます。手順は<a href="../delete-account/">アカウント削除のご案内</a>をご確認ください。</li>
         </ul>
-        <p>ただし、法令の遵守、不正利用の防止、セキュリティ対応のため、一部のデータを一定期間保持する場合があります。また、グループに共有済みの一部コンテンツは、他メンバーの環境に残る場合があります。なお、利用状況の分析情報やクラッシュ診断情報は、各外部サービス（Firebase Analytics・Sentry）の定める期間に従って保持されます。</p>
+        <p>ただし、法令の遵守、不正利用の防止、セキュリティ対応のため、一部のデータを一定期間保持する場合があります。また、グループに共有済みの一部コンテンツは、他メンバーの環境に残る場合があります。</p>
       </section>
 
       <section id="s7"><h2><span class="h2num">7</span>セキュリティ</h2>
@@ -211,48 +222,50 @@
       </div>
     </div>
   </div>
+  </div>
 </main>
 
 <footer class="site-footer">
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
-        <img src="../assets/OurPins_transparent.png" alt="OurPins">
-        <p>友達との「ここ行こう」を忘れず、反応 → 予定 → 思い出までつなげる共同マップアプリ。</p>
+        <img src="/assets/OurPins_transparent.png" alt="OurPins">
+        <p>友達と行きたい場所を地図に集めて、訪れた日の写真と感想を残せる共同マップアプリ。</p>
       </div>
       <div class="footer__col">
         <h4>製品</h4>
         <ul>
-          <li><a href="../#features">機能</a></li>
-          <li><a href="../#how">使い方</a></li>
+          <li><a href="/#features">機能</a></li>
+          <li><a href="/#how">使い方</a></li>
+          <li><a href="/partners/">パートナー募集</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h4>法務</h4>
         <ul>
-          <li><a href="../privacy/">プライバシーポリシー</a></li>
-          <li><a href="../terms/">利用規約</a></li>
-          <li><a href="../community-guidelines/">コミュニティガイドライン</a></li>
-          <li><a href="../delete-account/">アカウント削除</a></li>
+          <li><a href="/privacy/">プライバシーポリシー</a></li>
+          <li><a href="/terms/">利用規約</a></li>
+          <li><a href="/community-guidelines/">コミュニティガイドライン</a></li>
+          <li><a href="/delete-account/">アカウント削除</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h4>サポート</h4>
         <ul>
-          <li><a href="../contact/">お問い合わせ</a></li>
+          <li><a href="/contact/">お問い合わせ</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
       <small>© <span data-year>2026</span> OurPins 運営チーム</small>
       <div class="links">
-        <a href="../privacy/">プライバシー</a>
-        <a href="../terms/">規約</a>
-        <a href="../contact/">お問い合わせ</a>
+        <a href="/privacy/">プライバシー</a>
+        <a href="/terms/">規約</a>
+        <a href="/contact/">お問い合わせ</a>
       </div>
     </div>
   </div>
 </footer>
-<script src="../site.js?v=5"></script>
+<script src="../site.js?v=7"></script>
 </body>
 </html>

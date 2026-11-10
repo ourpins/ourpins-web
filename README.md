@@ -32,13 +32,9 @@ GitHub Pages でホスティングし、カスタムドメイン `ourpins.app` �
 - プライバシー / 法務: `legal@ourpins.app`
 - パートナー・掲載相談: `hello@ourpins.app`
 
-## パートナー募集フォーム
+## パートナーの受付
 
-GitHub Pages は静的ホスティングのため、HTMLだけではメール送信できません。
-`partners/index.html` と `partners/en/index.html` の `data-endpoint` にフォーム受信サービスのPOST URLを設定してください。
-
-初期運用では Formspree / Basin / Getform などで `hello@ourpins.app` 宛てに通知するのが最短です。
-長期運用では Cloudflare Worker + Resend / Postmark で `partners@ourpins.app` の専用窓口に送る構成が管理しやすいです。
+店舗・地域パートナーの相談は日英の募集ページから `hello@ourpins.app` 宛てのメールで受け付けます。
 
 ## ローカルで確認する
 
@@ -63,5 +59,5 @@ DNS 反映後、**Settings → Pages → Enforce HTTPS** をオンにします�
 ## メモ
 
 - 法務ページ（privacy / terms）は構成・可読性重視の骨子です。正式な条文は差し替え前提。
-- ストアバッジは商標に配慮したオリジナルの「近日公開（Coming soon）」表記。
-- アプリのスクショは、各画面を切り出した透過 PNG（`assets/phone-*.png`）を使用。
+- 日英のトップページは配信情報を `#download` にまとめています。
+- トップページのレイアウトは `landing.css`。地図・一覧・訪問投稿の画像（`assets/screen-*.webp`）は現行アプリのWebプレビューをデモデータで撮影しています。

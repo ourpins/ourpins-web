@@ -18,10 +18,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=5">
+<link rel="stylesheet" href="/styles.css?v=9">
 <script>document.documentElement.className += ' js';</script>
+<link rel="stylesheet" href="/guide-pages.css?v=2">
 </head>
-<body>
+<body class="guide-page page-missing">
 
 <header class="site-header">
   <div class="container nav">
@@ -29,21 +30,23 @@
     <nav class="nav__links" aria-label="メインナビゲーション">
       <a href="/#features">機能</a>
       <a href="/#how">使い方</a>
+      <a href="/partners/">パートナー募集</a>
       <a href="/contact/">お問い合わせ</a>
     </nav>
     <div class="nav__spacer"></div>
     <div class="nav__cta">
-      <a class="btn btn-soft" href="/#download">ダウンロード</a>
+      <a class="btn btn-soft" href="/#download">配信情報</a>
       <button class="nav__toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
     </div>
   </div>
 </header>
 <nav class="mobile-menu" id="mobileMenu" aria-label="モバイルナビゲーション">
-  <a href="/#features">機能</a>
-  <a href="/#how">使い方</a>
-  <a href="/contact/">お問い合わせ</a>
-  <a href="/#download">ダウンロード（近日公開）</a>
-</nav>
+      <a href="/#features">機能</a>
+      <a href="/#how">使い方</a>
+      <a href="/partners/">パートナー募集</a>
+      <a href="/contact/">お問い合わせ</a>
+      <a href="/#download">配信情報</a>
+    </nav>
 
 <main>
   <section class="nf">
@@ -82,15 +85,39 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <img src="/assets/OurPins_transparent.png" alt="OurPins">
-        <p>友達との「ここ行こう」を忘れず、反応 → 予定 → 思い出までつなげる共同マップアプリ。</p>
+        <p>友達と行きたい場所を地図に集めて、訪れた日の写真と感想を残せる共同マップアプリ。</p>
       </div>
-      <div class="footer__col"><h4>製品</h4><ul><li><a href="/#features">機能</a></li><li><a href="/#how">使い方</a></li></ul></div>
-      <div class="footer__col"><h4>法務</h4><ul><li><a href="/privacy/">プライバシーポリシー</a></li><li><a href="/terms/">利用規約</a></li><li><a href="/community-guidelines/">コミュニティガイドライン</a></li><li><a href="/delete-account/">アカウント削除</a></li></ul></div>
-      <div class="footer__col"><h4>サポート</h4><ul><li><a href="/contact/">お問い合わせ</a></li></ul></div>
+      <div class="footer__col">
+        <h4>製品</h4>
+        <ul>
+          <li><a href="/#features">機能</a></li>
+          <li><a href="/#how">使い方</a></li>
+          <li><a href="/partners/">パートナー募集</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>法務</h4>
+        <ul>
+          <li><a href="/privacy/">プライバシーポリシー</a></li>
+          <li><a href="/terms/">利用規約</a></li>
+          <li><a href="/community-guidelines/">コミュニティガイドライン</a></li>
+          <li><a href="/delete-account/">アカウント削除</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>サポート</h4>
+        <ul>
+          <li><a href="/contact/">お問い合わせ</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer__bottom">
       <small>© <span data-year>2026</span> OurPins 運営チーム</small>
-      <div class="links"><a href="/privacy/">プライバシー</a><a href="/terms/">規約</a><a href="/contact/">お問い合わせ</a></div>
+      <div class="links">
+        <a href="/privacy/">プライバシー</a>
+        <a href="/terms/">規約</a>
+        <a href="/contact/">お問い合わせ</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -99,8 +126,9 @@
 (function () {
   // /p/<groupId>/<pinId> → 場所共有リンクの受け皿に切り替える。
   // クエリ・ハッシュ・末尾スラッシュは許容し、IDはそのままスキームへ引き継ぐ。
-  var m = location.pathname.match(/^\/p\/([^\/?#]+)\/([^\/?#]+)/);
-  if (!m) {
+  var m = location.pathname.match(/^\/p\/([^\/?#]+)\/([^\/?#]+)\/?$/);
+  var invite = location.pathname.match(/^\/join\/([A-Za-z0-9]{6,64})\/?$/);
+  if (!m && !invite) {
     document.title = 'ページが見つかりません｜OurPins';
     return;
   }
@@ -108,10 +136,18 @@
   document.getElementById('nf-default').hidden = true;
   var place = document.getElementById('nf-place');
   place.hidden = false;
+  if (invite) {
+    document.title = 'グループへの招待｜OurPins';
+    place.querySelector('h1').textContent = '友達からマップへの招待です';
+    place.querySelector('p').textContent = 'OurPinsで一緒に「行きたい」を残そう。アプリで招待リンクを開くと参加できます。';
+    var code = document.createElement('p');
+    code.textContent = '招待コード：' + invite[1].toUpperCase();
+    place.appendChild(code);
+  }
 
   // アプリのカスタムスキーム。App Links / Universal Links が使えない導線
   // （LINEのアプリ内ブラウザ等）でも、このボタンからならアプリを起動できる。
-  var deepLink = 'ourpins://p/' + m[1] + '/' + m[2];
+  var deepLink = invite ? 'ourpins://join/' + invite[1] : 'ourpins://p/' + m[1] + '/' + m[2];
   document.getElementById('nf-open-app').setAttribute('href', deepLink);
 
   // iOSはApp Store URL確定後に差し替え（リリースチェックリスト参照）。
@@ -119,11 +155,11 @@
   var isIOS = /iPad|iPhone|iPod/.test(ua) || (/(Macintosh)/.test(ua) && navigator.maxTouchPoints > 1);
   if (isIOS) {
     var store = document.getElementById('nf-store-link');
-    store.textContent = 'iOS版は近日公開';
-    store.setAttribute('href', '/#download');
+    store.textContent = 'App Storeで見る';
+    store.setAttribute('href', 'https://apps.apple.com/app/id6824908742');
   }
 })();
 </script>
-<script src="/site.js?v=5"></script>
+<script src="/site.js?v=7"></script>
 </body>
 </html>
