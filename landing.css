@@ -94,3 +94,16 @@ html[lang=en] .cover-copy h1 { font-family:'Inter',system-ui,sans-serif; font-si
   .screen-stage { padding:18px; }
   .guide figure { aspect-ratio:1.6; }
 }
+/* Store artwork stays flat, unmodified and clear of neighboring controls. */
+.cover-download { display:flex; flex-wrap:wrap; align-items:center; gap:24px; margin-top:24px; }
+.cover-download .cover-link { margin-top:0; }
+.app-store-link { display:inline-flex; padding:11px; margin:-11px; flex:none; }
+.app-store-link img { display:block; height:44px; width:auto; max-width:none; }
+.cover-details { display:inline-flex; align-items:center; gap:10px; min-height:44px; margin-top:12px; font-size:14px; font-weight:650; text-decoration:underline; text-underline-offset:4px; text-decoration-color:#c9a089; }
+.release-layout { display:flex; align-items:center; justify-content:space-between; gap:30px; }
+.release .release-start { background:var(--coral); flex:none; padding:8px 10px 8px 21px; }
+@media(max-width:760px) {
+  .cover-download { gap:22px; margin-top:19px; }
+  .cover-download .cover-link { font-size:14px; }
+  .release-layout { align-items:flex-start; flex-direction:column; gap:0; }
+}

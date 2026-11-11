@@ -35,7 +35,7 @@
     </nav>
     <div class="nav__spacer"></div>
     <div class="nav__cta">
-      <a class="btn btn-soft" href="/#download">配信情報</a>
+      <a class="btn btn-soft" href="https://apps.apple.com/jp/app/ourpins/id6824908742?l=en-US">今すぐ始める</a>
       <button class="nav__toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
     </div>
   </div>
@@ -45,7 +45,7 @@
       <a href="/#how">使い方</a>
       <a href="/partners/">パートナー募集</a>
       <a href="/contact/">お問い合わせ</a>
-      <a href="/#download">配信情報</a>
+      <a href="https://apps.apple.com/jp/app/ourpins/id6824908742?l=en-US">今すぐ始める</a>
     </nav>
 
 <main>
@@ -150,13 +150,13 @@
   var deepLink = invite ? 'ourpins://join/' + invite[1] : 'ourpins://p/' + m[1] + '/' + m[2];
   document.getElementById('nf-open-app').setAttribute('href', deepLink);
 
-  // iOSはApp Store URL確定後に差し替え（リリースチェックリスト参照）。
+  // iOSでは公開済みのApp Store商品ページへ案内する。
   var ua = navigator.userAgent || '';
   var isIOS = /iPad|iPhone|iPod/.test(ua) || (/(Macintosh)/.test(ua) && navigator.maxTouchPoints > 1);
   if (isIOS) {
     var store = document.getElementById('nf-store-link');
     store.textContent = 'App Storeで見る';
-    store.setAttribute('href', 'https://apps.apple.com/app/id6824908742');
+    store.setAttribute('href', 'https://apps.apple.com/jp/app/ourpins/id6824908742?l=en-US');
   }
 })();
 </script>

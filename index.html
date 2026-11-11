@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=9">
 <script>document.documentElement.className += ' js';</script>
-<link rel="stylesheet" href="landing.css?v=6">
+<link rel="stylesheet" href="landing.css?v=7">
 </head>
 <body class="landing">
 
@@ -45,7 +45,7 @@
     <div class="nav__spacer"></div>
     <div class="nav__cta">
       <a class="lang-switch" href="en/" hreflang="en" aria-label="English"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18"/><path d="M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>EN</a>
-      <a class="btn btn-soft" href="#download">配信情報</a>
+      <a class="btn btn-soft" href="https://apps.apple.com/jp/app/ourpins/id6824908742?l=en-US">今すぐ始める</a>
       <button class="nav__toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
     </div>
   </div>
@@ -55,7 +55,7 @@
       <a href="/#how">使い方</a>
       <a href="/partners/">パートナー募集</a>
       <a href="/contact/">お問い合わせ</a>
-      <a href="/#download">配信情報</a>
+      <a href="https://apps.apple.com/jp/app/ourpins/id6824908742?l=en-US">今すぐ始める</a>
     </nav>
 
 <main>
@@ -65,7 +65,11 @@
         <p class="cover-kind"><i aria-hidden="true"></i>友達とつくる共同マップ</p>
         <h1 id="cover-title"><span>今日は、</span><strong>どこ行く？</strong></h1>
         <p>気になる喫茶店も、寄り道したい本屋も。<br>みんなの「行きたい」を、ひとつの地図に。</p>
-        <a class="cover-link brand-button" href="#features">アプリの画面を見る <b aria-hidden="true">↓</b></a>
+        <div class="cover-download">
+          <a class="cover-link brand-button" href="https://apps.apple.com/jp/app/ourpins/id6824908742?l=en-US">今すぐ始める <b aria-hidden="true">↗</b></a>
+          <a class="app-store-link" href="https://apps.apple.com/jp/app/ourpins/id6824908742?l=en-US" aria-label="OurPinsをApp Storeからダウンロード"><img src="assets/app-store-badge-ja.svg" alt="App Storeからダウンロード" height="44" width="120"></a>
+        </div>
+        <a class="cover-details" href="#features">アプリの画面を見る <span aria-hidden="true">↓</span></a>
       </div>
       <div class="pin-board" data-place="0">
         <canvas class="town-map" width="750" height="600" aria-hidden="true"></canvas>
@@ -110,7 +114,7 @@
 <div><h3>一緒に行く人と地図を共有</h3><p>ひとり用の地図に集めたり、グループの地図に友達を招いたり。旅先の本屋も近所の喫茶店も、好きなリストにまとめられます。</p></div>
 <div><h3>待ち合わせには位置共有を</h3><p>位置共有は初期設定でオフ。共有したい友達を選んで開始すると、アプリを使っている間の現在地が相手の地図に表示されます。</p></div></div></div>
   </section>
-  <section id="download" class="release"><div class="container"><h2>アプリの配信情報</h2><p>OurPinsは配信準備中です。アプリについてのご質問は、お問い合わせ窓口へ。</p><a href="contact/">お問い合わせ <span aria-hidden="true">↗</span></a></div></section>
+  <section id="download" class="release"><div class="container release-layout"><div><h2>最初の「行きたい」を、<br>ピンにしよう。</h2><p>OurPins、App Storeで配信開始。無料でダウンロードして、友達と地図をつくろう。</p></div><a class="brand-button release-start" href="https://apps.apple.com/jp/app/ourpins/id6824908742?l=en-US">今すぐ始める <b aria-hidden="true">↗</b></a></div></section>
 </main>
 <script defer src="gallery.js?v=3"></script>
 
