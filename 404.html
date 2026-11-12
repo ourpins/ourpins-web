@@ -77,7 +77,7 @@
         インストール済みなのに開かない場合は「アプリで開く」をタップしてください。
       </p>
       <div id="nf-invite-help" hidden>
-        <p id="nf-invite-install-note">「アプリで参加する」を押してアプリが開かなければ、ストアへ進みます。インストール後、この招待リンクをもう一度開いて参加してください。</p>
+        <p id="nf-invite-install-note">アプリをまだ入れていない方は、ストアのボタンから入手してください。インストール後、この招待リンクをもう一度開いて参加してください。</p>
         <p>リンクから参加できない場合は、アプリの「招待リンクから参加」に下の招待コードを入力できます。</p>
         <p>招待コード：<strong id="nf-invite-code" style="overflow-wrap:anywhere;user-select:all"></strong></p>
         <p id="nf-invite-browser-note" hidden>LINE内でアプリが開かない場合は、メニューからSafariやChromeなどのブラウザで開いてください。</p>
@@ -182,27 +182,10 @@
     open.hidden = true;
     document.getElementById('nf-invite-install-note').textContent = 'App StoreまたはGoogle Playからスマートフォンにアプリをインストールし、この招待リンクをもう一度開いて参加してください。';
   }
-  // Android Chrome handles the app/store fallback as one user-initiated intent.
-  if (isAndroid) {
-    open.href = 'intent://join/' + invite[1] + '#Intent;scheme=ourpins;package=app.ourpins;S.browser_fallback_url=' + encodeURIComponent(storeUrl) + ';end';
-  } else if (isIOS) {
-    // Browsers cannot reliably detect installation. Try only on a user tap,
-    // then fall back if the page stays visible. Never redirect on page load.
-    var fallback;
-    function cancelFallback() { clearTimeout(fallback); fallback = undefined; }
-    document.addEventListener('visibilitychange', function () {
-      if (document.visibilityState === 'hidden') cancelFallback();
-    });
-    window.addEventListener('pagehide', cancelFallback);
-    window.addEventListener('pageshow', cancelFallback);
-    open.addEventListener('click', function (event) {
-      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || (event.button != null && event.button !== 0)) return;
-      cancelFallback();
-      fallback = setTimeout(function () {
-        if (document.visibilityState === 'visible') location.assign(storeUrl);
-      }, 2000);
-    });
-  }
+  // Opening an app and installing it are separate actions. A visible page or
+  // a blocked app launch does not prove that the app is missing. Keep the
+  // custom-scheme link above on both mobile platforms; never fall back to a
+  // store automatically while the user may still be confirming app launch.
 })();
 </script>
 <script src="/site.js?v=7"></script>
