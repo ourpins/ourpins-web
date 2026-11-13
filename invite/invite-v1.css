@@ -1,2 +1,50 @@
-:root{color-scheme:light dark;--canvas:#fffafa;--surface:#fff;--ink:#222;--muted:#666;--line:#e9e4e2;--primary:#b83b34}
-*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font-family:system-ui,-apple-system,"Yu Gothic",sans-serif;line-height:1.65}a{color:inherit}a:focus-visible{outline:3px solid #b83b34;outline-offset:5px}[hidden]{display:none!important}header{max-width:620px;margin:0 auto;padding:24px 20px}header img{display:block;object-fit:contain}main{max-width:580px;margin:0 auto 32px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--surface)}.hero{display:block;width:100%;height:auto}section{padding:28px}h1{font-size:clamp(23px,5.5vw,30px);line-height:1.45;margin:0 0 12px;letter-spacing:-.025em;text-wrap:balance}p{margin:0 0 20px}.primary{display:block;background:var(--primary);color:white;text-align:center;border-radius:14px;padding:14px 18px;text-decoration:none;font-weight:700;min-height:52px;margin:24px 0}.code-label{font-size:13px;color:var(--muted);margin:24px 0 5px}.code{display:block;font-size:21px;letter-spacing:.12em;overflow-wrap:anywhere;user-select:all;margin-bottom:12px}.muted{font-size:13px;color:var(--muted)}.install{border-top:1px solid var(--line);padding-top:24px;margin-top:24px}.install h2{font-size:15px;margin:0 0 12px}.stores{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}.stores a{min-height:44px;display:flex;align-items:center;padding:8px 16px;border:1px solid var(--line);border-radius:12px;font-weight:600;text-decoration:none}footer{display:flex;justify-content:space-between;max-width:580px;margin:0 auto;padding:0 20px 28px;font-size:12px;color:var(--muted)}@media(max-width:620px){main{margin:0 12px 28px;border-radius:20px}section{padding:22px}}@media(prefers-color-scheme:dark){:root{--canvas:#181716;--surface:#222120;--ink:#f6f3f1;--muted:#c4bdb8;--line:#44403e}header img{filter:brightness(0) invert(1)}}
+/* Use the same paper, outlines, map ticket and buttons as the rest of the site. */
+.invite-page { color-scheme:light; }
+.invite-page [hidden] { display:none!important; }
+.invite-page :focus-visible { outline:3px solid #a13a34; outline-offset:5px; }
+.invite-page .nav { justify-content:space-between; }
+.invite-home { display:inline-flex; align-items:center; gap:12px; min-height:44px; font-size:13px; font-weight:700; }
+.invite-home span { background:#ffe59b; border:1.5px solid var(--ink); border-radius:50%; width:28px; height:28px; display:grid; place-items:center; }
+.invite-main { background:var(--paper); background-image:radial-gradient(#cdbd964d 1px,transparent 1px); background-size:17px 17px; border-bottom:2px solid var(--ink); }
+.invite-layout { max-width:1120px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(40px,6vw,90px); align-items:center; padding-block:64px 74px; }
+.invite-intro { position:relative; min-width:0; }
+.invite-intro .brand-label { margin-bottom:22px; }
+.invite-art { width:135px; max-width:none; margin:0 0 28px 8px; }
+.invite-art .ticket-icon { background:#b9e2bd; }
+.invite-intro h1 { font-size:clamp(36px,4.1vw,56px); line-height:1.27; font-weight:850; letter-spacing:-.055em; overflow-wrap:anywhere; }
+.invite-intro h1 strong { position:relative; isolation:isolate; color:#b64039; white-space:nowrap; }
+.invite-intro h1 strong::after { content:''; position:absolute; inset:auto 1% 5% 0; height:17%; background:#ffde70; border-radius:55% 25% 45% 20%; rotate:-2deg; z-index:-1; }
+#invite-description { margin-top:22px; max-width:31em; font-size:15px; line-height:1.9; color:#514e4b; }
+.invite-panel { min-width:0; padding:30px; background:#fffef9; border:var(--brand-outline); border-radius:26px 32px 26px 32px; box-shadow:6px 7px var(--ink); position:relative; }
+.invite-panel::before { content:''; position:absolute; width:72px; height:22px; background:#ffdf80e6; top:-12px; left:calc(50% - 36px); rotate:-4deg; }
+.invite-panel .primary { width:100%; justify-content:space-between; font-size:17px; margin-bottom:24px; min-height:56px; }
+.invite-code-box { background:#e4f1df; border:1.5px dashed #73816f; border-radius:14px; padding:14px 18px; margin-top:18px; }
+.code-label { font-size:12px; font-weight:700; color:#515a4d; }
+.code { display:block; margin-top:3px; font-size:25px; letter-spacing:.15em; overflow-wrap:anywhere; user-select:all; line-height:1.5; }
+.muted { color:#615b54; font-size:13px; line-height:1.8; }
+.invite-help { margin-top:14px; font-size:13px; color:#514e4b; }
+.invite-help summary { min-height:44px; padding-block:10px; cursor:pointer; text-decoration:underline; text-underline-offset:4px; }
+.invite-help p { margin-top:8px; }
+.install { border-top:2px dotted #d5c9b8; padding-top:22px; margin-top:18px; }
+.install h2 { font-size:15px; line-height:1.6; margin-bottom:14px; }
+.stores { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+.store-apple,.store-soon { flex:1 1 140px; min-height:58px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 14px; border:1.5px solid var(--ink); border-radius:13px; font-weight:700; font-size:15px; }
+.store-apple { background:#fff1d2; box-shadow:2px 3px var(--ink); white-space:nowrap; }
+.store-apple:hover { background:#ffe8ae; }
+.store-soon { background:#f1eee7; color:#696258; border-color:#c7bfae; flex-direction:column; justify-content:center; gap:0; }
+.store-soon small { font-size:11px; font-weight:600; }
+.invite-footer { max-width:1120px; display:flex; justify-content:space-between; gap:20px; padding-block:23px; font-size:12px; color:#615b54; }
+.invite-footer a { text-decoration:underline; text-underline-offset:4px; }
+@media(max-width:760px) {
+  .invite-layout { grid-template-columns:1fr; gap:32px; padding-block:30px 42px; max-width:520px; }
+  .invite-intro .brand-label { padding-right:80px; min-height:42px; margin-bottom:12px; font-size:13px; }
+  .invite-art { position:absolute; width:69px; top:0; right:3px; margin:0; border-radius:12px; box-shadow:3px 4px #f5947e; }
+  .invite-intro h1 { font-size:clamp(32px,8.5vw,43px); }
+  #invite-description { margin-top:16px; font-size:14px; }
+  .invite-panel { padding:24px 20px; border-radius:23px; box-shadow:4px 5px var(--ink); }
+  .invite-panel .primary { font-size:16px; }
+  .stores { gap:10px; }
+  .store-apple,.store-soon { flex-basis:100px; padding:10px; font-size:14px; }
+}
+@media(prefers-reduced-motion:reduce) { .invite-art,.invite-art .ticket-icon { animation:none; } }
+@media(max-width:360px) { .store-apple,.store-soon { padding:10px 8px; font-size:13px; gap:6px; } .store-soon { gap:0; } }

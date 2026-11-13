@@ -10,7 +10,16 @@ const copy = {
   ko: ['OurPins 그룹 초대', '친구와 가고 싶은 곳을 모아 보세요.', '마음에 드는 장소를 같은 지도에 저장하세요. 앱에서 그룹을 확인하고 참여할 수 있어요.', '앱에서 열기', '아직 앱이 없나요?', '설치한 뒤 이 초대 링크를 다시 열어 주세요.', '초대 코드', '링크가 열리지 않으면 앱의 ‘초대 링크로 참여’에 이 코드를 입력해 주세요.', 'LINE에서 앱이 열리지 않으면 메뉴에서 Safari 또는 Chrome으로 이 페이지를 열어 주세요.', '초대 링크를 확인해 주세요', '유효한 초대 코드를 찾을 수 없어요. 초대를 보낸 친구에게 링크를 확인해 주세요.', '스마트폰에서 이 페이지를 열거나 앱에 초대 코드를 입력해 주세요.', 'OurPins 홈', '친구와 함께, 가고 싶은 곳.'],
 };
 const escape = s => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const ui = {
+  ja: ['グループへの招待', '準備中', 'リンクが開かないとき', 'プライバシー', 'App Storeで入手'],
+  en: ['A map to share with friends', 'Coming soon', 'Having trouble opening the link?', 'Privacy', 'Download on the App Store'],
+  'zh-Hans': ['朋友的群组邀请', '即将推出', '无法打开链接？', '隐私政策', '在 App Store 下载'],
+  'zh-Hant': ['朋友的群組邀請', '即將推出', '無法開啟連結？', '隱私權政策', '在 App Store 下載'],
+  ko: ['친구와 함께하는 지도', '준비 중', '링크가 열리지 않나요?', '개인정보 처리방침', 'App Store에서 다운로드'],
+};
 for (const [locale, c] of Object.entries(copy)) {
+  const u = ui[locale];
+  const home = locale === 'en' ? '/en/' : '/';
   const dir = path.join(root, 'invite', ...(locale === 'ja' ? [] : [locale]));
   fs.mkdirSync(dir, {recursive:true});
   const image = `https://ourpins.app/assets/invite-card-${locale}-v1.png`;
@@ -24,20 +33,24 @@ for (const [locale, c] of Object.entries(copy)) {
 <meta property="og:image" content="${image}"><meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${escape(c[13])}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${image}"><meta name="twitter:image:alt" content="${escape(c[13])}">
-<meta name="theme-color" content="#fffafa"><link rel="icon" href="/assets/pins_icon_transparent.png">
-<link rel="stylesheet" href="/invite/invite-v1.css"><script src="/invite/invite-v1.js" defer></script>
-</head><body>
-<header><a href="/" aria-label="${escape(c[12])}"><img src="/assets/OurPins_transparent.png" alt="OurPins" width="150" height="36"></a></header>
-<main><img class="hero" src="/assets/invite-card-${locale}-v1.png" alt="${escape(c[13])}" width="1200" height="630">
-<section><h1 id="invite-title">${locale === 'ja' ? '友達と<span style="white-space:nowrap">「行きたい」</span>を集めよう。' : escape(c[1])}</h1><p id="invite-description">${escape(c[2])}</p>
-<div id="invite-valid" hidden><a class="primary" id="invite-open" href="/">${escape(c[3])}</a>
+<meta name="theme-color" content="#fff9e9"><link rel="icon" href="/assets/pins_icon_transparent.png">
+<link rel="stylesheet" href="/styles.css?v=9"><link rel="stylesheet" href="/guide-pages.css?v=2">
+<link rel="stylesheet" href="/invite/invite-v1.css?v=2"><script src="/invite/invite-v1.js" defer></script>
+</head><body class="guide-page invite-page">
+<header class="site-header"><div class="container nav"><a class="nav__logo" href="${home}" aria-label="${escape(c[12])}"><img src="/assets/OurPins_transparent.png" alt="OurPins" width="150" height="36"></a><a class="invite-home" href="${home}">${escape(c[12])}<span aria-hidden="true">↗</span></a></div></header>
+<main class="invite-main"><div class="container invite-layout">
+<div class="invite-intro"><p class="brand-label">${escape(u[0])}</p>
+<div class="map-ticket invite-art" aria-hidden="true"><div class="ticket-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M32 57S13 39 13 24a19 19 0 0 1 38 0c0 15-19 33-19 33Z" fill="#f4685f" stroke="#262b38" stroke-width="2.5"/><circle cx="32" cy="24" r="7" fill="#fffdfa" stroke="#262b38" stroke-width="2.5"/></svg></div><i class="ticket-pin"></i></div>
+<h1 id="invite-title">${locale === 'ja' ? '友達と、<br><strong>「行きたい」</strong><br>を集めよう。' : escape(c[1])}</h1><p id="invite-description">${escape(c[2])}</p></div>
+<section class="invite-panel" aria-label="${escape(u[0])}">
+<div id="invite-valid" hidden><a class="brand-button primary" id="invite-open" href="/">${escape(c[3])}<b aria-hidden="true">↗</b></a>
 <p class="muted" id="invite-desktop" hidden>${escape(c[11])}</p>
-<p class="code-label">${escape(c[6])}</p><strong id="invite-code" class="code"></strong><p class="muted">${escape(c[7])}</p>
-<p class="muted" id="invite-line" hidden>${escape(c[8])}</p></div>
-<div id="invite-invalid" hidden role="status" data-title="${escape(c[9])}" data-description="${escape(c[10])}"><a href="/">${escape(c[12])}</a></div>
+<div class="invite-code-box"><p class="code-label">${escape(c[6])}</p><strong id="invite-code" class="code"></strong></div>
+<details class="invite-help"><summary>${escape(u[2])}</summary><p class="muted">${escape(c[7])}</p><p class="muted" id="invite-line" hidden>${escape(c[8])}</p></details></div>
+<div id="invite-invalid" hidden role="status" data-title="${escape(c[9])}" data-description="${escape(c[10])}"><a class="text-link" href="${home}">${escape(c[12])}</a></div>
 <noscript><p>${escape(c[11])}</p></noscript>
-<div class="install"><h2>${escape(c[4])}</h2><div class="stores"><a href="https://apps.apple.com/app/id6824908742">App Store</a><a href="https://play.google.com/store/apps/details?id=app.ourpins">Google Play</a></div><p class="muted">${escape(c[5])}</p></div>
-</section></main><footer><a href="/privacy/">Privacy</a><span>© OurPins</span></footer></body></html>
+<div class="install"><h2>${escape(c[4])}</h2><div class="stores"><a class="store-apple" href="https://apps.apple.com/app/id6824908742" aria-label="${escape(u[4])}">App Store<span aria-hidden="true">↗</span></a><span class="store-soon" aria-disabled="true">Google Play<small>${escape(u[1])}</small></span></div><p class="muted">${escape(c[5])}</p></div>
+</section></div></main><footer class="invite-footer container"><a href="/privacy/">${escape(u[3])}</a><span>© OurPins</span></footer></body></html>
 `;
   fs.writeFileSync(path.join(dir, 'index.html'), html);
 }

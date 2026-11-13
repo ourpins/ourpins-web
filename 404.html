@@ -29,6 +29,7 @@
 <link rel="stylesheet" href="/styles.css?v=9">
 <script>document.documentElement.className += ' js';</script>
 <link rel="stylesheet" href="/guide-pages.css?v=2">
+<style>#nf-place[hidden],#nf-place [hidden]{display:none!important}#nf-android-soon{background:#f1eee7;color:#696258;border-color:#c7bfae;box-shadow:none;cursor:default}</style>
 </head>
 <body class="guide-page page-missing">
 
@@ -79,7 +80,8 @@
       <p>OurPinsアプリで開くと、地図の場所と<br>みんなの「行きたい！」が見られます。</p>
       <div class="store-row" style="justify-content:center">
         <a class="btn btn-primary" id="nf-open-app" href="/">アプリで開く</a>
-        <a class="btn btn-ghost" id="nf-store-link" href="https://play.google.com/store/apps/details?id=app.ourpins">Google Playで入手</a>
+        <a class="btn btn-ghost" id="nf-store-link" href="https://apps.apple.com/app/id6824908742">App Storeで入手</a>
+        <span class="btn btn-ghost" aria-disabled="true" id="nf-android-soon">Google Play（準備中）</span>
       </div>
       <p id="nf-place-note" style="margin-top:16px;font-size:13px;color:#767676">
         インストール済みなのに開かない場合は「アプリで開く」をタップしてください。
@@ -168,27 +170,17 @@
   var ua = navigator.userAgent || '';
   var isIOS = /iPad|iPhone|iPod/.test(ua) || (/(Macintosh)/.test(ua) && navigator.maxTouchPoints > 1);
   var isAndroid = /Android/i.test(ua);
-  var storeUrl = isIOS ? 'https://apps.apple.com/app/id6824908742' : 'https://play.google.com/store/apps/details?id=app.ourpins';
   var store = document.getElementById('nf-store-link');
-  store.setAttribute('href', storeUrl);
-  if (isIOS) {
-    store.textContent = 'App Storeで入手';
-  } else if (!isAndroid) {
-    store.textContent = 'App Storeで入手';
-    store.setAttribute('href', 'https://apps.apple.com/app/id6824908742');
-    var androidStore = document.createElement('a');
-    androidStore.className = 'btn btn-ghost';
-    androidStore.href = 'https://play.google.com/store/apps/details?id=app.ourpins';
-    androidStore.textContent = 'Google Playで入手';
-    store.parentNode.appendChild(androidStore);
-  }
+  store.hidden = isAndroid;
   if (!invite) return;
   document.getElementById('nf-place-note').hidden = true;
   document.getElementById('nf-invite-browser-note').hidden = !/Line\//i.test(ua);
   var open = document.getElementById('nf-open-app');
   if (!isIOS && !isAndroid) {
     open.hidden = true;
-    document.getElementById('nf-invite-install-note').textContent = 'App StoreまたはGoogle Playからスマートフォンにアプリをインストールし、この招待リンクをもう一度開いて参加してください。';
+    document.getElementById('nf-invite-install-note').textContent = 'iPhone・iPadの方はApp Storeからアプリをインストールし、この招待リンクをもう一度開いて参加してください。Google Play版は準備中です。';
+  } else if (isAndroid) {
+    document.getElementById('nf-invite-install-note').textContent = 'Google Play版は準備中です。OurPinsをインストール済みの方は「アプリで参加する」から開けます。';
   }
   // Opening an app and installing it are separate actions. A visible page or
   // a blocked app launch does not prove that the app is missing. Keep the

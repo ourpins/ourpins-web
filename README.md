@@ -62,6 +62,7 @@ DNS 反映後、**Settings → Pages → Enforce HTTPS** をオンにします�
 - 新しい招待ページはHTTP 200で共通の1200×630画像をクローラーへ返す。グループ/メンバー情報は公開しない。クエリの招待コードはブラウザー内だけで扱い、参加はアプリで確認する。コードを失うcanonical/og:urlを設定しない。
 - `/invite/`は旧アプリのUniversal Link対象`/join/*`と分け、ボタンから旧アプリも理解できる`ourpins://join/CODE`を開く。自動ストア転送は行わない。既存の`/join/CODE`と`/p/...`は404ページの既存導線を維持する。
 - 招待ページ再生成: `node scripts/build-invite-pages.cjs`。画像再生成（Windows）: `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-invite-card.ps1`。検証: `node --test tests/invite.test.mjs`。実際のLINEプレビュー表示はLINE側のキャッシュ/設定にも依存し、実機確認が必要。
+- 招待ページは共通の `styles.css` / `guide-pages.css` の紙色・ドット・地図チケット・輪郭線を使う。共有カード画像はページ上の大きなヒーローとして使わず、OG情報として保持する。Google Playは5言語の「準備中」をリンクなしで表示し、従来の招待/場所共有ページも同じ配信状況へ揃える。
 
 - 法務ページ（privacy / terms）は構成・可読性重視の骨子です。正式な条文は差し替え前提。
 - 日英のトップページは配信情報を `#download` にまとめています。
