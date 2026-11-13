@@ -18,6 +18,7 @@ GitHub Pages でホスティングし、カスタムドメイン `ourpins.app` �
 | `/community-guidelines` | [`community-guidelines/index.html`](community-guidelines/index.html) | コミュニティガイドライン |
 | `/partners` | [`partners/index.html`](partners/index.html) | パートナー・掲載相談 |
 | （404） | [`404.html`](404.html) | Not Found |
+| `/invite/?code=…` | [`invite/index.html`](invite/index.html) | 画像付きのグループ招待。en/zh-Hans/zh-Hant/ko配下にも静的ページ |
 
 共通: [`styles.css`](styles.css)（デザイントークン・全ページ共通スタイル）、
 [`site.js`](site.js)（控えめなモーション：スクロール表示・ヒーロー演出・ピン演出。`prefers-reduced-motion` 対応）、
@@ -57,6 +58,10 @@ python -m http.server 8000
 DNS 反映後、**Settings → Pages → Enforce HTTPS** をオンにします。
 
 ## メモ
+
+- 新しい招待ページはHTTP 200で共通の1200×630画像をクローラーへ返す。グループ/メンバー情報は公開しない。クエリの招待コードはブラウザー内だけで扱い、参加はアプリで確認する。コードを失うcanonical/og:urlを設定しない。
+- `/invite/`は旧アプリのUniversal Link対象`/join/*`と分け、ボタンから旧アプリも理解できる`ourpins://join/CODE`を開く。自動ストア転送は行わない。既存の`/join/CODE`と`/p/...`は404ページの既存導線を維持する。
+- 招待ページ再生成: `node scripts/build-invite-pages.cjs`。画像再生成（Windows）: `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-invite-card.ps1`。検証: `node --test tests/invite.test.mjs`。実際のLINEプレビュー表示はLINE側のキャッシュ/設定にも依存し、実機確認が必要。
 
 - 法務ページ（privacy / terms）は構成・可読性重視の骨子です。正式な条文は差し替え前提。
 - 日英のトップページは配信情報を `#download` にまとめています。
